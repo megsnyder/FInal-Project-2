@@ -11,7 +11,6 @@ pink = Color(0xffa5eb, 1.0)
 
 noline = LineStyle(0, white)
 
-#baby
 head = EllipseAsset(37,35, noline, bodyC)
 eye=CircleAsset(10,noline,black)
 highlight=CircleAsset(4,noline,white)
