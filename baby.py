@@ -27,9 +27,12 @@ eyebrow1=PolygonAsset([(0,0),(12,0),(0,6),(0,0)], noline, bodyC)
 eyebrow2=PolygonAsset([(0,0),(12,0),(12,6),(0,0)], noline, bodyC)
 eyelid=CircleAsset(10,noline,bodyC)
 eyelid2=RectangleAsset(20,7,noline,bodyC)
+arm=EllipseAsset(5,5,noline,bodyC)
 
 #happy
 Sprite(body, (220,177))
+Sprite(arm, (217,190))
+Sprite(arm, (292,190))
 Sprite(head, (223, 124))
 Sprite(eye, (230, 150))
 Sprite(eye, (270, 150))
