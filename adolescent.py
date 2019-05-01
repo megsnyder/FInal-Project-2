@@ -56,7 +56,6 @@ Sprite(eyebrow1, (233,149))
 Sprite(eyebrow2, (279,149))
 Sprite(mouth, (258,178))
 Sprite(mouth2, (258,179))
-'''
 #tired
 Sprite(eyelid, (232, 142))
 Sprite(eyelid, (272, 142))
@@ -65,6 +64,6 @@ Sprite(mouth3, (258, 178))
 Sprite(eyelid2, (232, 150))
 Sprite(eyelid2, (272, 150))
 Sprite(mouth4, (256, 178))
-'''
+
 myapp = App()
 myapp.run()
