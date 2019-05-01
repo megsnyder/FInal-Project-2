@@ -49,11 +49,11 @@ Sprite(earin, (288,122))
 Sprite(leg, (226,265))
 Sprite(leg, (260,265))
 #happy
-Sprite(mouth, (256,178))
-Sprite(mouth2, (256,177))
+Sprite(mouth, (258,178))
+Sprite(mouth2, (258,177))
 #sad
-Sprite(mouth, (256,178))
-Sprite(mouth2, (256,179))
+Sprite(mouth, (258,178))
+Sprite(mouth2, (258,179))
 #tired
 Sprite(eyelid, (232, 142))
 Sprite(eyelid, (272, 142))
