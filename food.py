@@ -18,11 +18,11 @@ leaf=EllipseAsset(5,2,noline,green1)
 shine=CircleAsset(5,noline,white)
 shadow=CircleAsset(7,noline,red)
 
-Sprite(apple, (120,187))
-Sprite(stem, (130,183))
-Sprite(leaf, (130,180))
-Sprite(shine, (122,189))
-Sprite(shadow, (124,191))
+Sprite(apple, (120,197))
+Sprite(stem, (130,193))
+Sprite(leaf, (130,190))
+Sprite(shine, (122,199))
+Sprite(shadow, (124,201))
 
 
 myapp = App()
