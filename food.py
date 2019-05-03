@@ -14,15 +14,15 @@ noline = LineStyle(0, white)
 
 apple=CircleAsset(10,noline,red)
 stem=RectangleAsset(2,7,noline,brown)
-leaf=EllipseAsset(5,5,noline,green)
-shine=CircleAsset(7,noline,white)
+leaf=EllipseAsset(5,2,noline,green)
+shine=CircleAsset(5,noline,white)
 shadow=CircleAsset(7,noline,red)
 
 Sprite(apple, (220,177))
-Sprite(stem, (217,190))
-Sprite(leaf, (292,190))
-Sprite(shine, (292,190))
-Sprite(shadow, (292,190))
+Sprite(stem, (230,173))
+Sprite(leaf, (230,170))
+Sprite(shine, (222,179))
+Sprite(shadow, (224,181))
 
 
 myapp = App()
