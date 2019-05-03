@@ -57,8 +57,8 @@ class Game(App):
         self.food=Food((100,200))
         self.food=Food((60,250))
         self.food=Food((20,220))
-        self.food=Food((900,200))
-        self.food=Food((860,250))
+        self.food=Food((950,300))
+        self.food=Food((920,350))
 
         
 myapp = Game(SCREEN_WIDTH,SCREEN_HEIGHT)
