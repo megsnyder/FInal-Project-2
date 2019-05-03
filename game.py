@@ -25,6 +25,7 @@ class Creature(Sprite):
         self.vy = 0
         
 class Food(Sprite):
+    asset=ImageAsset("images/Screenshot 2019-05-03 at 10.png")
     def __init__(self, position):
         super().__init__(Food.asset, position)
         self.vx = 0
@@ -51,18 +52,7 @@ class Game(App):
         Sprite(bushes, (925,280))
         Sprite(bushes, (900,300))
         Sprite(bushes, (950,320))
-        apple=CircleAsset(10,noline,red)
-        stem=RectangleAsset(2,7,noline,brown)
-        leaf=EllipseAsset(5,2,noline,green1)
-        shine=CircleAsset(5,noline,white)
-        shadow=CircleAsset(7,noline,red)
         
-        Sprite(apple, (110,197))
-        Sprite(stem, (120,193))
-        Sprite(leaf, (120,190))
-        Sprite(shine, (112,199))
-        Sprite(shadow, (114,201))
-
         self.creature=Creature((300,300))
         
 myapp = Game(SCREEN_WIDTH,SCREEN_HEIGHT)
