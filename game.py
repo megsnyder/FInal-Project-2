@@ -10,6 +10,9 @@ green=Color(0x4fff85, 1.0)
 leaves=Color(0x31e34f, 1.0)
 bodyC = Color(0x88bbFF, 1.0)
 pink = Color(0xffa5eb, 1.0)
+red = Color(0xd90000, 1.0)
+brown = Color(0xa07251, 1.0)
+green1 = Color(0x3ddb33, 1.0)
 noline = LineStyle(0, white)
 
 
@@ -48,6 +51,18 @@ class Game(App):
         Sprite(bushes, (925,280))
         Sprite(bushes, (900,300))
         Sprite(bushes, (950,320))
+        apple=CircleAsset(10,noline,red)
+        stem=RectangleAsset(2,7,noline,brown)
+        leaf=EllipseAsset(5,2,noline,green1)
+        shine=CircleAsset(5,noline,white)
+        shadow=CircleAsset(7,noline,red)
+        
+        Sprite(apple, (110,197))
+        Sprite(stem, (120,193))
+        Sprite(leaf, (120,190))
+        Sprite(shine, (112,199))
+        Sprite(shadow, (114,201))
+
         self.creature=Creature((300,300))
         
 myapp = Game(SCREEN_WIDTH,SCREEN_HEIGHT)
