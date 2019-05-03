@@ -54,6 +54,12 @@ class Game(App):
         Sprite(bushes, (950,320))
         
         self.creature=Creature((300,300))
+        self.food=Food((100,200))
+        self.food=Food((60,250))
+        self.food=Food((20,220))
+        self.food=Food((900,200))
+        self.food=Food((860,250))
+
         
 myapp = Game(SCREEN_WIDTH,SCREEN_HEIGHT)
 myapp.run()
