@@ -119,7 +119,7 @@ class Game(App):
         else:
             Creature1.visible=False
             Creature2.visible=False
-            Creature2.visible=True
+            Creature3.visible=True
     #def doplay(self, event):
         
 myapp = Game(SCREEN_WIDTH,SCREEN_HEIGHT)
