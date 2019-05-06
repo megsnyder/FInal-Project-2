@@ -27,6 +27,24 @@ class Creature1(Sprite):
         self.vx = 0
         self.vy = 0
         
+class Creature2(Sprite):
+    asset=ImageAsset("images/Screenshot 2019-05-01 at 9.png")
+    
+    def __init__(self, position):
+        super().__init__(Creature2.asset, position)
+        self.visible=False
+        self.vx = 0
+        self.vy = 0
+        
+class Creature3(Sprite):
+    asset=ImageAsset("images/Screenshot 2019-05-01 at 10 (5).png")
+    
+    def __init__(self, position):
+        super().__init__(Creature3.asset, position)
+        self.visible=False
+        self.vx = 0
+        self.vy = 0
+        
 class Food(Sprite):
     asset=ImageAsset("images/Screenshot 2019-05-03 at 10.png")
     def __init__(self, position):
@@ -92,6 +110,8 @@ class Game(App):
         Sprite(bushes, (950,320))
     
         self.creature1=Creature1((300,300))
+        self.creature2=Creature2((300,300))
+        self.creature3=Creature3((300,300))
         self.food=Food((100,200))
         self.food=Food((60,250))
         self.food=Food((20,220))
