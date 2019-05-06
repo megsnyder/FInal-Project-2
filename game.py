@@ -131,15 +131,18 @@ class Game(App):
         for night in self.getSpritesbyClass(Night):
             night.visible=True
         self.a+=1  
-        if self.a<3:
-            Creature1.visible=True
-        elif self.a<6:
-            Creature1.visible=False
-            Creature2.visible=True
-        else:
-            Creature1.visible=False
-            Creature2.visible=False
-            Creature3.visible=True
+        for creature1 in self.getSpritesbyClass(Creature1):
+            for creature2 in self.getSpritesbyClass(Creature2):
+                for creature3 in self.getSpritesbyClass(Creature3):
+                    if self.a<3:
+                        creature1.visible=True
+                    elif self.a<6:
+                        creature1.visible=False
+                        creature2.visible=True
+                    else:
+                        creature1.visible=False
+                        creature2.visible=False
+                        creature3.visible=True
     #def doplay(self, event):
         
 myapp = Game(SCREEN_WIDTH,SCREEN_HEIGHT)
