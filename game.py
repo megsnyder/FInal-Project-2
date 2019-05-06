@@ -26,6 +26,27 @@ class Creature1(Sprite):
         super().__init__(Creature1.asset, position)
         self.vx = 0
         self.vy = 0
+class Creature1sad(Sprite):
+    asset=ImageAsset("images/Screenshot 2019-04-30 at 10.png")
+    
+    def __init__(self, position):
+        super().__init__(Creature1sad.asset, position)
+        self.vx = 0
+        self.vy = 0
+class Creature1bored(Sprite):
+    asset=ImageAsset("images/Screenshot 2019-04-30 at 10.png")
+    
+    def __init__(self, position):
+        super().__init__(Creature1bored.asset, position)
+        self.vx = 0
+        self.vy = 0
+class Creature1tired(Sprite):
+    asset=ImageAsset("images/Screenshot 2019-04-30 at 10.png")
+    
+    def __init__(self, position):
+        super().__init__(Creature1tired.asset, position)
+        self.vx = 0
+        self.vy = 0
         
 class Creature2(Sprite):
     asset=ImageAsset("images/Screenshot 2019-05-01 at 9.png")
@@ -120,14 +141,23 @@ class Game(App):
         self.feed=Feed((20,500))
         self.sleep=Sleep((60,500))
         self.play=Play((100,500))
-        #Game.listenKeyEvent("keydown", "f", self.dofeed)
+        Game.listenKeyEvent("keydown", "f", self.dofeed)
         Game.listenKeyEvent("keydown", "s", self.dosleep)
-        #Game.listenKeyEvent("keydown", "p", self.doplay)
+        Game.listenKeyEvent("keydown", "p", self.doplay)
         self.a=0
+        self.f=10
+        self.s=10
+        self.p=10
+        self.time=0
 
-    #def dofeed(self, event):
+    def dofeed(self, event):
+        if self.f<10:
+            self.f+=1
+        self.food=Food((335,360))
         
     def dosleep(self, event):
+        if self.s<10:
+            self.s+=1
         for night in self.getSpritesbyClass(Night):
             night.visible=True
         self.a+=1  
@@ -143,7 +173,16 @@ class Game(App):
                         creature1.visible=False
                         creature2.visible=False
                         creature3.visible=True
-    #def doplay(self, event):
+                        
+    def doplay(self, event):
+        if self.p<10:
+            self.p+=1
+    
+    def step(self):
+        self.time+=1
+        self.f-=1
+        self.s-=1
+        self.p-=1
         
 myapp = Game(SCREEN_WIDTH,SCREEN_HEIGHT)
 myapp.run()
