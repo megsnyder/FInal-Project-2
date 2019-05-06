@@ -14,7 +14,8 @@ red = Color(0xd90000, 1.0)
 brown = Color(0xa07251, 1.0)
 green1 = Color(0x3ddb33, 1.0)
 noline = LineStyle(0, white)
-
+grey = Color(0x515979, 1.0)
+green2 = Color(0x40793a, 1.0)
 
 class Creature(Sprite):
     asset=ImageAsset("images/Screenshot 2019-04-30 at 10.png")
@@ -42,9 +43,11 @@ class Game(App):
     def __init__(self,width,height):
         super().__init__(width,height)
         bg_asset = RectangleAsset(self.width, self.height, noline, day)
+        nbg_asset = RectangleAsset(self.width, self.height, noline, night)
         ground_asset = RectangleAsset(self.width, 400, noline, green)
         bushes = CircleAsset(50,noline,leaves)
         Sprite(bg_asset, (0,0))
+        Sprite(nbg_asset, (0,0))
         Sprite(ground_asset, (0,240))
         Sprite(bushes, (0,200))
         Sprite(bushes, (50,180))
