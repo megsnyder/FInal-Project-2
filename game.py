@@ -56,6 +56,27 @@ class Creature2(Sprite):
         self.visible=False
         self.vx = 0
         self.vy = 0
+class Creature2sad(Sprite):
+    asset=ImageAsset("images/Screenshot 2019-04-30 at 10.png")
+    
+    def __init__(self, position):
+        super().__init__(Creature2sad.asset, position)
+        self.vx = 0
+        self.vy = 0
+class Creature2bored(Sprite):
+    asset=ImageAsset("images/Screenshot 2019-04-30 at 10.png")
+    
+    def __init__(self, position):
+        super().__init__(Creature2bored.asset, position)
+        self.vx = 0
+        self.vy = 0
+class Creature2tired(Sprite):
+    asset=ImageAsset("images/Screenshot 2019-04-30 at 10.png")
+    
+    def __init__(self, position):
+        super().__init__(Creature2tired.asset, position)
+        self.vx = 0
+        self.vy = 0
         
 class Creature3(Sprite):
     asset=ImageAsset("images/Screenshot 2019-05-01 at 10 (5).png")
@@ -63,6 +84,27 @@ class Creature3(Sprite):
     def __init__(self, position):
         super().__init__(Creature3.asset, position)
         self.visible=False
+        self.vx = 0
+        self.vy = 0
+class Creature3sad(Sprite):
+    asset=ImageAsset("images/Screenshot 2019-04-30 at 10.png")
+    
+    def __init__(self, position):
+        super().__init__(Creature1sad.asset, position)
+        self.vx = 0
+        self.vy = 0
+class Creature3bored(Sprite):
+    asset=ImageAsset("images/Screenshot 2019-04-30 at 10.png")
+    
+    def __init__(self, position):
+        super().__init__(Creature1bored.asset, position)
+        self.vx = 0
+        self.vy = 0
+class Creature3tired(Sprite):
+    asset=ImageAsset("images/Screenshot 2019-04-30 at 10.png")
+    
+    def __init__(self, position):
+        super().__init__(Creature1tired.asset, position)
         self.vx = 0
         self.vy = 0
         
