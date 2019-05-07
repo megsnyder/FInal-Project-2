@@ -237,13 +237,13 @@ class Game(App):
         self.f-=.5
         self.s-=.5
         self.p-=.5
-        if self.creature1.visible==True and self.f<500 and self.f<self.s and self.f<self.p:
+        if self.creature1.visible==True and self.f<750 and self.f<self.s and self.f<self.p:
             self.creature1sad=Creature1sad((297,295))
             self.creature1.visible=False
-        if self.creature1.visible==True and self.s<500 and self.s<self.f and self.f<self.p:
-            self.creature1tired=Creature1tired((297,295))
+        if self.creature1.visible==True and self.s<750 and self.s<self.f and self.f<self.p:
+            self.creature1tired=Creature1tired((272,297))
             self.creature1.visible=False
-        if self.creature1.visible==True and self.p<500 and self.p<self.s and self.p<self.f:
+        if self.creature1.visible==True and self.p<750 and self.p<self.s and self.p<self.f:
             self.creature1bored=Creature1bored((297,295))
             self.creature1.visible=False
         if self.f==0 or self.s==0 or self.p==0:
