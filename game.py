@@ -194,8 +194,10 @@ class Game(App):
         self.p=1000
 
     def dofeed(self, event):
-        if self.f<1000:
+        if self.f<750:
             self.f+=250
+        elif self.p<1000:
+            self.p=1000
         self.food=Food((335,360))
         
     def dosleep(self, event):
@@ -228,8 +230,6 @@ class Game(App):
         self.f-=.5
         self.s-=.5
         self.p-=.5
-        print(self.p)
-        print("s" + str(self.s))
         for creature1 in self.getSpritesbyClass(Creature1):
             for creature2 in self.getSpritesbyClass(Creature2):
                 for creature3 in self.getSpritesbyClass(Creature3):
