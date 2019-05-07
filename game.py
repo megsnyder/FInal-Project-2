@@ -206,18 +206,21 @@ class Game(App):
         if self.s<1000:
             self.s=1000
         self.a+=1  
-        for creature1 in self.getSpritesbyClass(Creature1):
-            for creature2 in self.getSpritesbyClass(Creature2):
-                for creature3 in self.getSpritesbyClass(Creature3):
-                    if self.a<3:
-                        creature1.visible=True
-                    elif self.a<6:
-                        creature1.visible=False
-                        creature2.visible=True
-                    else:
-                        creature1.visible=False
-                        creature2.visible=False
-                        creature3.visible=True
+
+        if self.a<3:
+            self.creature1.visible=True
+        elif self.a<6:
+            self.creature1.visible=False
+            self.creature1sad.visible=False
+            self.creature1tired.visible=False
+            self.creature1bored.visible=False
+            self.creature2.visible=True
+        else:
+            self.creature2.visible=False
+            self.creature2sad.visible=False
+            self.creature2tired.visible=False
+            self.creature2bored.visible=False
+            self.creature3.visible=True
                         
     def doplay(self, event):
         if self.p<750:
@@ -233,8 +236,8 @@ class Game(App):
         for creature1 in self.getSpritesbyClass(Creature1):
             for creature2 in self.getSpritesbyClass(Creature2):
                 for creature3 in self.getSpritesbyClass(Creature3):
-                    if creature1.visible==True and self.f>500 and self.f<self.s and self.f<self.p:
-                        self.play=Play((300,300))
+                    if creature1.visible==True and self.f<500 and self.f<self.s and self.f<self.p:
+                        self.creature1sad=Creature1sad((297,295))
                         creature1.visible=False
         if self.f==0 or self.s==0 or self.p==0:
             print("game over")
