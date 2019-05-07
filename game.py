@@ -194,15 +194,15 @@ class Game(App):
         self.p=1000
 
     def dofeed(self, event):
-        if self.f<100:
-            self.f+=50
+        if self.f<1000:
+            self.f+=250
         self.food=Food((335,360))
         
     def dosleep(self, event):
         for night in self.getSpritesbyClass(Night):
             night.visible=True
-        if self.s<100:
-            self.s=100
+        if self.s<1000:
+            self.s=1000
         self.a+=1  
         for creature1 in self.getSpritesbyClass(Creature1):
             for creature2 in self.getSpritesbyClass(Creature2):
@@ -218,8 +218,8 @@ class Game(App):
                         creature3.visible=True
                         
     def doplay(self, event):
-        if self.p<100:
-            self.p+=50
+        if self.p<1000:
+            self.p+=250
         self.trampoline=Trampoline((435,360))
         
     def step(self):
