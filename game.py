@@ -218,8 +218,10 @@ class Game(App):
                         creature3.visible=True
                         
     def doplay(self, event):
-        if self.p<1000:
+        if self.p<750:
             self.p+=250
+        elif self.p<1000:
+            self.p=1000
         self.trampoline=Trampoline((435,360))
         
     def step(self):
