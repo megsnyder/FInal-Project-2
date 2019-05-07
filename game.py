@@ -196,8 +196,8 @@ class Game(App):
     def dofeed(self, event):
         if self.f<750:
             self.f+=250
-        elif self.p<1000:
-            self.p=1000
+        elif self.f<1000:
+            self.f=1000
         self.food=Food((335,360))
         
     def dosleep(self, event):
