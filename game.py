@@ -226,11 +226,14 @@ class Game(App):
         self.f-=.5
         self.s-=.5
         self.p-=.5
+        print(self.p)
+        print("s" + str(self.s))
         for creature1 in self.getSpritesbyClass(Creature1):
             for creature2 in self.getSpritesbyClass(Creature2):
                 for creature3 in self.getSpritesbyClass(Creature3):
-                    if creature1.visible=True and self.f>500 and self.f<self.s and self.f<self.p:
-                        self.creature1sad=Creature1sad((300,300))
+                    if creature1.visible==True and self.f>500 and self.f<self.s and self.f<self.p:
+                        self.play=Play((300,300))
+                        creature1.visible=False
         if self.f==0 or self.s==0 or self.p==0:
             print("game over")
 myapp = Game(SCREEN_WIDTH,SCREEN_HEIGHT)
