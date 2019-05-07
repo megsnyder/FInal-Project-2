@@ -188,9 +188,9 @@ class Game(App):
         Game.listenKeyEvent("keydown", "s", self.dosleep)
         Game.listenKeyEvent("keydown", "p", self.doplay)
         self.a=0
-        self.f=100
-        self.s=100
-        self.p=100
+        self.f=1000
+        self.s=1000
+        self.p=1000
 
     def dofeed(self, event):
         if self.f<100:
@@ -222,9 +222,10 @@ class Game(App):
         self.trampoline=Trampoline((435,360))
         
     def step(self):
-        self.f-=1
-        self.s-=1
-        self.p-=1
-        
+        self.f-=.5
+        self.s-=.5
+        self.p-=.5
+        if self.f<0 or self.s<0 or self.p<0:
+            print("game over")
 myapp = Game(SCREEN_WIDTH,SCREEN_HEIGHT)
 myapp.run()
