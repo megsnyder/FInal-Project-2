@@ -116,6 +116,7 @@ class Food(Sprite):
         self.vy = 0 
 
 class Trampoline(Sprite):
+    asset=ImageAsset("images/Screenshot 2019-05-06 at 9.png")
     def __init__(self, position):
         super().__init__(Trampoline.asset, position)
         self.vx = 0
@@ -187,21 +188,20 @@ class Game(App):
         Game.listenKeyEvent("keydown", "s", self.dosleep)
         Game.listenKeyEvent("keydown", "p", self.doplay)
         self.a=0
-        self.f=10
-        self.s=10
-        self.p=10
-        self.time=0
+        self.f=100
+        self.s=100
+        self.p=100
 
     def dofeed(self, event):
-        if self.f<10:
-            self.f+=1
+        if self.f<100:
+            self.f+=50
         self.food=Food((335,360))
         
     def dosleep(self, event):
-        if self.s<10:
-            self.s+=1
         for night in self.getSpritesbyClass(Night):
             night.visible=True
+        if self.s<100:
+            self.s=100
         self.a+=1  
         for creature1 in self.getSpritesbyClass(Creature1):
             for creature2 in self.getSpritesbyClass(Creature2):
@@ -217,11 +217,11 @@ class Game(App):
                         creature3.visible=True
                         
     def doplay(self, event):
-        if self.p<10:
-            self.p+=1
-    
+        if self.p<100:
+            self.p+=50
+        self.trampoline=Trampoline((435,360))
+        
     def step(self):
-        self.time+=1
         self.f-=1
         self.s-=1
         self.p-=1
