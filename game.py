@@ -225,7 +225,7 @@ class Game(App):
         self.f-=.5
         self.s-=.5
         self.p-=.5
-        if self.f<0 or self.s<0 or self.p<0:
+        if self.f==0 or self.s==0 or self.p==0:
             print("game over")
 myapp = Game(SCREEN_WIDTH,SCREEN_HEIGHT)
 myapp.run()
