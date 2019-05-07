@@ -211,15 +211,19 @@ class Game(App):
             self.creature1.visible=True
         elif self.a<6:
             self.creature1.visible=False
+            '''
             self.creature1sad.visible=False
             self.creature1tired.visible=False
             self.creature1bored.visible=False
+            '''
             self.creature2.visible=True
         else:
             self.creature2.visible=False
+            '''
             self.creature2sad.visible=False
             self.creature2tired.visible=False
             self.creature2bored.visible=False
+            '''
             self.creature3.visible=True
                         
     def doplay(self, event):
@@ -233,12 +237,9 @@ class Game(App):
         self.f-=.5
         self.s-=.5
         self.p-=.5
-        for creature1 in self.getSpritesbyClass(Creature1):
-            for creature2 in self.getSpritesbyClass(Creature2):
-                for creature3 in self.getSpritesbyClass(Creature3):
-                    if creature1.visible==True and self.f<500 and self.f<self.s and self.f<self.p:
-                        self.creature1sad=Creature1sad((297,295))
-                        creature1.visible=False
+        if self.creature1.visible==True and self.f<500 and self.f<self.s and self.f<self.p:
+            self.creature1sad=Creature1sad((297,295))
+            self.creature1.visible=False
         if self.f==0 or self.s==0 or self.p==0:
             print("game over")
 myapp = Game(SCREEN_WIDTH,SCREEN_HEIGHT)
