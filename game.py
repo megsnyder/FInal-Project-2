@@ -190,6 +190,7 @@ class Game(App):
         Game.listenKeyEvent("keydown", "p", self.doplay)
         self.a=0
         self.b=0
+        self.c=0
         self.f=1000
         self.s=1000
         self.p=1000
@@ -238,16 +239,22 @@ class Game(App):
         if self.creature1.visible==True and self.f<750 and self.f<self.s and self.f<self.p:
             self.creature1sad=Creature1sad((297,295))
             self.creature1.visible=False
+            self.c=1
         if self.creature1.visible==True and self.s<750 and self.s<self.f and self.f<self.p:
             self.creature1tired=Creature1tired((272,297))
             self.creature1.visible=False
+            self.c=1
         if self.creature1.visible==True and self.p<750 and self.p<self.s and self.p<self.f:
             self.creature1bored=Creature1bored((291,300))
             self.creature1.visible=False
+            self.c=1
+        if self.c==1 and self.f>750 and self.s>750 and self.p>750:
+            self.creature1.visible=True
         if self.b==1:
             self.s+=10
         if self.s==1000:
             self.night.visible=False
+            b=0
         if self.f==0 or self.s==0 or self.p==0:
             print("game over")
 myapp = Game(SCREEN_WIDTH,SCREEN_HEIGHT)
