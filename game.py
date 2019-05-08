@@ -202,10 +202,7 @@ class Game(App):
         self.food=Food((335,360))
         
     def dosleep(self, event):
-        if self.s>=1000:
-            self.night.visible=False
-        else:
-            self.night.visible=True
+        self.night.visible=True
         self.b=1
         self.a+=1  
         if self.a<3:
@@ -249,6 +246,8 @@ class Game(App):
             self.creature1.visible=False
         if self.b==1:
             self.s+=10
+        if self.s==1000:
+            self.night.visible=False
         if self.f==0 or self.s==0 or self.p==0:
             print("game over")
 myapp = Game(SCREEN_WIDTH,SCREEN_HEIGHT)
