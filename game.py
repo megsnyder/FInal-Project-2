@@ -54,7 +54,7 @@ class Creature2(Sprite):
     
     def __init__(self, position):
         super().__init__(Creature2.asset, position)
-        #self.visible=False
+        self.visible=False
         self.vx = 0
         self.vy = 0
 class Creature2sad(Sprite):
@@ -84,7 +84,7 @@ class Creature3(Sprite):
     
     def __init__(self, position):
         super().__init__(Creature3.asset, position)
-        #self.visible=False
+        self.visible=False
         self.vx = 0
         self.vy = 0
 class Creature3sad(Sprite):
@@ -174,8 +174,8 @@ class Game(App):
         Sprite(bushes, (900,300))
         Sprite(bushes, (950,320))
     
-        self.creature3=Creature3((290,200))
-        self.creature2=Creature2((300,250))
+        self.creature3=Creature3((290,225))
+        self.creature2=Creature2((300,270))
         self.creature1=Creature1((300,300))
         self.food=Food((100,200))
         self.food=Food((60,250))
