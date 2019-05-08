@@ -212,19 +212,15 @@ class Game(App):
             self.creature1.visible=True
         elif self.a<6:
             self.creature1.visible=False
-            '''
             self.creature1sad.visible=False
             self.creature1tired.visible=False
             self.creature1bored.visible=False
-            '''
             self.creature2.visible=True
         else:
             self.creature2.visible=False
-            '''
             self.creature2sad.visible=False
             self.creature2tired.visible=False
             self.creature2bored.visible=False
-            '''
             self.creature3.visible=True
                         
     def doplay(self, event):
