@@ -186,6 +186,9 @@ class Game(App):
         self.creature3=Creature3((290,225))
         self.creature2=Creature2((300,270))
         self.creature1=Creature1((300,300))
+        self.creature1sad=Creature1sad((297,295))
+        self.creature1tired=Creature1tired((272,297))
+        
         self.food=Food((100,200))
         self.food=Food((60,250))
         self.food=Food((20,220))
@@ -245,11 +248,11 @@ class Game(App):
         self.p-=.5
         #baby
         if self.creature1.visible==True and self.f<750 and self.f<self.s and self.f<self.p:
-            self.creature1sad=Creature1sad((297,295))
+            self.creature1sad.visible=True
             self.creature1.visible=False
             self.c=1
         if self.creature1.visible==True and self.s<750 and self.s<self.f and self.f<self.p:
-            self.creature1tired=Creature1tired((272,297))
+            self.creature1sad.visible=True
             self.creature1.visible=False
             self.c=1
         if self.creature1.visible==True and self.p<750 and self.p<self.s and self.p<self.f:
