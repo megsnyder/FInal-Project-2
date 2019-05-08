@@ -32,6 +32,7 @@ class Creature1sad(Sprite):
     
     def __init__(self, position):
         super().__init__(Creature1sad.asset, position)
+        self.visible=False
         self.vx = 0
         self.vy = 0
 class Creature1bored(Sprite):
@@ -39,6 +40,7 @@ class Creature1bored(Sprite):
     
     def __init__(self, position):
         super().__init__(Creature1bored.asset, position)
+        self.visible=False
         self.vx = 0
         self.vy = 0
 class Creature1tired(Sprite):
@@ -46,6 +48,7 @@ class Creature1tired(Sprite):
     
     def __init__(self, position):
         super().__init__(Creature1tired.asset, position)
+        self.visible=False
         self.vx = 0
         self.vy = 0
         
@@ -62,6 +65,7 @@ class Creature2sad(Sprite):
     
     def __init__(self, position):
         super().__init__(Creature2sad.asset, position)
+        self.visible=False
         self.vx = 0
         self.vy = 0
 class Creature2bored(Sprite):
@@ -69,6 +73,7 @@ class Creature2bored(Sprite):
     
     def __init__(self, position):
         super().__init__(Creature2bored.asset, position)
+        self.visible=False
         self.vx = 0
         self.vy = 0
 class Creature2tired(Sprite):
@@ -76,6 +81,7 @@ class Creature2tired(Sprite):
     
     def __init__(self, position):
         super().__init__(Creature2tired.asset, position)
+        self.visible=False
         self.vx = 0
         self.vy = 0
         
@@ -92,6 +98,7 @@ class Creature3sad(Sprite):
     
     def __init__(self, position):
         super().__init__(Creature1sad.asset, position)
+        self.visible=False
         self.vx = 0
         self.vy = 0
 class Creature3bored(Sprite):
@@ -99,6 +106,7 @@ class Creature3bored(Sprite):
     
     def __init__(self, position):
         super().__init__(Creature1bored.asset, position)
+        self.visible=False
         self.vx = 0
         self.vy = 0
 class Creature3tired(Sprite):
@@ -106,6 +114,7 @@ class Creature3tired(Sprite):
     
     def __init__(self, position):
         super().__init__(Creature1tired.asset, position)
+        self.visible=False
         self.vx = 0
         self.vy = 0
         
