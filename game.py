@@ -216,6 +216,7 @@ class Game(App):
         self.p=1000
 
     def dofeed(self, event):
+        print("self.f=" + str(self.f))
         if self.f<750:
             self.f+=250
         elif self.f<1000:
@@ -223,18 +224,22 @@ class Game(App):
         self.food=Food((335,360))
         
     def dosleep(self, event):
+        print("self.s=" + str(self.s))
         self.night.visible=True
         self.b=1
         self.a+=1  
         if self.a<3:
             self.creature1.visible=True
         elif self.a<6:
+            self.c=0
             self.creature1.visible=False
             self.creature1sad.visible=False
             self.creature1tired.visible=False
             self.creature1bored.visible=False
             self.creature2.visible=True
         else:
+            self.c=0
+            self.d=0
             self.creature2.visible=False
             self.creature2sad.visible=False
             self.creature2tired.visible=False
@@ -242,6 +247,7 @@ class Game(App):
             self.creature3.visible=True
                         
     def doplay(self, event):
+        print("self.p=" + str(self.p))
         if self.p<750:
             self.p+=250
         elif self.p<1000:
