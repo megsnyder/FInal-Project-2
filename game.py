@@ -174,8 +174,8 @@ class Game(App):
         Sprite(bushes, (900,300))
         Sprite(bushes, (950,320))
     
-        self.creature3=Creature3((300,250))
-        self.creature2=Creature2((300,270))
+        self.creature3=Creature3((290,200))
+        self.creature2=Creature2((300,250))
         self.creature1=Creature1((300,300))
         self.food=Food((100,200))
         self.food=Food((60,250))
