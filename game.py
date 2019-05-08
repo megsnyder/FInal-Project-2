@@ -207,10 +207,10 @@ class Game(App):
         Game.listenKeyEvent("keydown", "s", self.dosleep)
         Game.listenKeyEvent("keydown", "p", self.doplay)
         self.a=0
-        self.b=0
-        self.c=0
-        self.d=0
-        self.e=0
+        self.b=False
+        self.c=False
+        self.d=False
+        self.e=False
         self.f=1000
         self.s=1000
         self.p=1000
@@ -226,20 +226,20 @@ class Game(App):
     def dosleep(self, event):
         print("self.s=" + str(self.s))
         self.night.visible=True
-        self.b=1
+        self.b=True
         self.a+=1  
         if self.a<3:
             self.creature1.visible=True
         elif self.a<6:
-            self.c=0
+            self.c=False
             self.creature1.visible=False
             self.creature1sad.visible=False
             self.creature1tired.visible=False
             self.creature1bored.visible=False
             self.creature2.visible=True
         else:
-            self.c=0
-            self.d=0
+            self.c=False
+            self.d=False
             self.creature2.visible=False
             self.creature2sad.visible=False
             self.creature2tired.visible=False
@@ -262,49 +262,49 @@ class Game(App):
         if self.creature1.visible==True and self.f<750 and self.f<self.s and self.f<self.p:
             self.creature1sad.visible=True
             self.creature1.visible=False
-            self.c=1
+            self.c=True
         if self.creature1.visible==True and self.s<750 and self.s<self.f and self.f<self.p:
             self.creature1tired.visible=True
             self.creature1.visible=False
-            self.c=1
+            self.c=True
         if self.creature1.visible==True and self.p<750 and self.p<self.s and self.p<self.f:
             self.creature1bored.visible=True
             self.creature1.visible=False
-            self.c=1
-        if self.c==1 and self.f>750 and self.s>750 and self.p>750:
+            self.c=True
+        if self.c==True and self.f>750 and self.s>750 and self.p>750:
             self.creature1.visible=True
         #adolescent    
         if self.creature2.visible==True and self.f<750 and self.f<self.s and self.f<self.p:
             self.creature2sad.visible=True
             self.creature2.visible=False
-            self.d=1
+            self.d=True
         if self.creature2.visible==True and self.s<750 and self.s<self.f and self.f<self.p:
             self.creature2tired.visible=True
             self.creature2.visible=False
-            self.d=1
+            self.d=True
         if self.creature2.visible==True and self.p<750 and self.p<self.s and self.p<self.f:
             self.creature2bored.visible=True
             self.creature2.visible=False
-            self.d=1
-        if self.d==1 and self.f>750 and self.s>750 and self.p>750:
+            self.d=True
+        if self.d==True and self.f>750 and self.s>750 and self.p>750:
             self.creature2.visible=True
         #adult    
         if self.creature3.visible==True and self.f<750 and self.f<self.s and self.f<self.p:
             self.creature3sad.visible=True
             self.creature3.visible=False
-            self.e=1
+            self.e=True
         if self.creature3.visible==True and self.s<750 and self.s<self.f and self.f<self.p:
             self.creature3tired.visible=True
             self.creature3.visible=False
-            self.e=1
+            self.e=True
         if self.creature3.visible==True and self.p<750 and self.p<self.s and self.p<self.f:
             self.creature3bored.visible=True
             self.creature3.visible=False
-            self.e=1
-        if self.e==1 and self.f>750 and self.s>750 and self.p>750:
+            self.e=True
+        if self.e==True and self.f>750 and self.s>750 and self.p>750:
             self.creature3.visible=True
             
-        if self.b==1 and self.s<1000:
+        if self.b==True and self.s<1000:
             self.s+=.75
         if self.s==1000:
             self.night.visible=False
