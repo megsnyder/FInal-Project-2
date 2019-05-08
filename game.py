@@ -184,7 +184,13 @@ class Game(App):
         Sprite(bushes, (950,320))
     
         self.creature3=Creature3((290,225))
+        self.creature3sad=Creature3sad((297,295))
+        self.creature3tired=Creature3tired((272,297))
+        self.creature3bored=Creature1bored((291,300))
         self.creature2=Creature2((300,270))
+        self.creature2sad=Creature2sad((297,295))
+        self.creature2tired=Creature2tired((272,297))
+        self.creature2bored=Creature2bored((291,300))
         self.creature1=Creature1((300,300))
         self.creature1sad=Creature1sad((297,295))
         self.creature1tired=Creature1tired((272,297))
@@ -263,30 +269,30 @@ class Game(App):
             self.creature1.visible=True
         #adolescent    
         if self.creature2.visible==True and self.f<750 and self.f<self.s and self.f<self.p:
-            self.creature2sad=Creature2sad((297,295))
+            self.creature2sad.visible=True
             self.creature2.visible=False
             self.d=1
         if self.creature2.visible==True and self.s<750 and self.s<self.f and self.f<self.p:
-            self.creature2tired=Creature2tired((272,297))
+            self.creature2tired.visible=True
             self.creature2.visible=False
             self.d=1
         if self.creature2.visible==True and self.p<750 and self.p<self.s and self.p<self.f:
-            self.creature2bored=Creature2bored((291,300))
+            self.creature2bored.visible=True
             self.creature2.visible=False
             self.d=1
         if self.d==1 and self.f>750 and self.s>750 and self.p>750:
             self.creature2.visible=True
         #adult    
         if self.creature3.visible==True and self.f<750 and self.f<self.s and self.f<self.p:
-            self.creature3sad=Creature3sad((297,295))
+            self.creature3sad.visible=True
             self.creature3.visible=False
             self.e=1
         if self.creature3.visible==True and self.s<750 and self.s<self.f and self.f<self.p:
-            self.creature3tired=Creature3tired((272,297))
+            self.creature3tired.visible=True
             self.creature3.visible=False
             self.e=1
         if self.creature3.visible==True and self.p<750 and self.p<self.s and self.p<self.f:
-            self.creature3bored=Creature1bored((291,300))
+            self.creature3bored.visible=True
             self.creature3.visible=False
             self.e=1
         if self.e==1 and self.f>750 and self.s>750 and self.p>750:
