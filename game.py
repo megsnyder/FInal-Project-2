@@ -305,7 +305,7 @@ class Game(App):
             self.creature3.visible=True
             
         if self.b==1 and self.s<1000:
-            self.s+=1
+            self.s+=.75
         if self.s==1000:
             self.night.visible=False
             b=0
