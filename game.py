@@ -191,6 +191,8 @@ class Game(App):
         self.a=0
         self.b=0
         self.c=0
+        self.d=0
+        self.e=0
         self.f=1000
         self.s=1000
         self.p=1000
@@ -236,6 +238,7 @@ class Game(App):
         self.f-=.5
         self.s-=.5
         self.p-=.5
+        #baby
         if self.creature1.visible==True and self.f<750 and self.f<self.s and self.f<self.p:
             self.creature1sad=Creature1sad((297,295))
             self.creature1.visible=False
@@ -250,6 +253,37 @@ class Game(App):
             self.c=1
         if self.c==1 and self.f>750 and self.s>750 and self.p>750:
             self.creature1.visible=True
+        #adolescent    
+        if self.creature2.visible==True and self.f<750 and self.f<self.s and self.f<self.p:
+            self.creature2sad=Creature2sad((297,295))
+            self.creature2.visible=False
+            self.d=1
+        if self.creature2.visible==True and self.s<750 and self.s<self.f and self.f<self.p:
+            self.creature2tired=Creature2tired((272,297))
+            self.creature2.visible=False
+            self.d=1
+        if self.creature2.visible==True and self.p<750 and self.p<self.s and self.p<self.f:
+            self.creature2bored=Creature2bored((291,300))
+            self.creature2.visible=False
+            self.d=1
+        if self.d==1 and self.f>750 and self.s>750 and self.p>750:
+            self.creature2.visible=True
+        #adult    
+        if self.creature3.visible==True and self.f<750 and self.f<self.s and self.f<self.p:
+            self.creature3sad=Creature3sad((297,295))
+            self.creature3.visible=False
+            self.e=1
+        if self.creature3.visible==True and self.s<750 and self.s<self.f and self.f<self.p:
+            self.creature3tired=Creature3tired((272,297))
+            self.creature3.visible=False
+            self.e=1
+        if self.creature3.visible==True and self.p<750 and self.p<self.s and self.p<self.f:
+            self.creature3bored=Creature1bored((291,300))
+            self.creature3.visible=False
+            self.e=1
+        if self.e==1 and self.f>750 and self.s>750 and self.p>750:
+            self.creature3.visible=True
+            
         if self.b==1:
             self.s+=10
         if self.s==1000:
