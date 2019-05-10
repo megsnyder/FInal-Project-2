@@ -213,7 +213,7 @@ class Game(App):
         #Game.listenKeyEvent("keydown", "up arrow", self.up)
         self.a=0
         self.b=False
-        self.c=False
+        self.c=True
         self.d=False
         self.e=False
         self.f=1000
@@ -233,18 +233,18 @@ class Game(App):
         self.night.visible=True
         self.b=True
         self.a+=1  
-        if self.a<3:
-            self.creature1.visible=True
-        elif self.a<6:
+        if 3<self.a<=6:
             self.c=False
+            self.d=True
             self.creature1.visible=False
             self.creature1sad.visible=False
             self.creature1tired.visible=False
             self.creature1bored.visible=False
             self.creature2.visible=True
-        else:
+        elif self.a>6:
             self.c=False
             self.d=False
+            self.e=True
             self.creature2.visible=False
             self.creature2sad.visible=False
             self.creature2tired.visible=False
@@ -322,6 +322,7 @@ class Game(App):
         self.f-=.5
         self.s-=.5
         self.p-=.5
+    
         self.creature1.x += self.creature1.vx
         self.creature1sad.x += self.creature1sad.vx
         self.creature1bored.x += self.creature1bored.vx
@@ -334,17 +335,17 @@ class Game(App):
         self.creature3sad.x += self.creature3sad.vx
         self.creature3bored.x += self.creature3bored.vx
         self.creature3tired.x += self.creature3tired.vx
-        
+
         #baby
-        if self.creature1.visible==True and self.f<750 and self.f<=self.s and self.f<=self.p:
+        if self.c==True and self.f<750 and self.f<=self.s and self.f<=self.p:
             self.creature1sad.visible=True
             self.creature1.visible=False
             self.c=True
-        elif self.creature1.visible==True and self.s<750 and self.s<=self.f and self.f<=self.p:
+        elif self.c==True and self.s<750 and self.s<=self.f and self.f<=self.p:
             self.creature1tired.visible=True
             self.creature1.visible=False
             self.c=True
-        elif self.creature1.visible==True and self.p<750 and self.p<=self.s and self.p<=self.f:
+        elif self.c==True and self.p<750 and self.p<=self.s and self.p<=self.f:
             self.creature1bored.visible=True
             self.creature1.visible=False
             self.c=True
