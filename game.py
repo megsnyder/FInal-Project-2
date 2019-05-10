@@ -275,12 +275,45 @@ class Game(App):
         
     def left(self, event):
         self.creature1.vx = -2
+        self.creature1sad.vx = -2
+        self.creature1bored.vx = -2
+        self.creature1tired.vx = -2
+        self.creature2.vx = -2
+        self.creature2sad.vx = -2
+        self.creature2bored.vx = -2
+        self.creature2tired.vx = -2
+        self.creature3.vx = -2
+        self.creature3sad.vx = -2
+        self.creature3bored.vx = -2
+        self.creature3tired.vx = -2
         
     def right2(self, event):
         self.creature1.vx = 0
+        self.creature1sad.vx = 0
+        self.creature1bored.vx = 0
+        self.creature1tired.vx = 0
+        self.creature2.vx = 0
+        self.creature2sad.vx = 0
+        self.creature2bored.vx = 0
+        self.creature2tired.vx = 0
+        self.creature3.vx = 0
+        self.creature3sad.vx = 0
+        self.creature3bored.vx = 0
+        self.creature3tired.vx = 0
         
     def left2(self, event):
         self.creature1.vx = 0
+        self.creature1sad.vx = 0
+        self.creature1bored.vx = 0
+        self.creature1tired.vx = 0
+        self.creature2.vx = 0
+        self.creature2sad.vx = 0
+        self.creature2bored.vx = 0
+        self.creature2tired.vx = 0
+        self.creature3.vx = 0
+        self.creature3sad.vx = 0
+        self.creature3bored.vx = 0
+        self.creature3tired.vx = 0
        
     #def up(self, event):
         #player.vy = -10
