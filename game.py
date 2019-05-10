@@ -398,7 +398,7 @@ class Game(App):
             self.s+=.75
         if self.s==1000:
             self.night.visible=False
-            b=0
+            self.n=False
         if self.f==0 or self.s==0 or self.p==0:
             print("game over")
 myapp = Game(SCREEN_WIDTH,SCREEN_HEIGHT)
