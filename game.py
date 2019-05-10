@@ -340,47 +340,38 @@ class Game(App):
         if self.c==True and self.f<750 and self.f<=self.s and self.f<=self.p:
             self.creature1sad.visible=True
             self.creature1.visible=False
-            self.c=True
         elif self.c==True and self.s<750 and self.s<=self.f and self.f<=self.p:
             self.creature1tired.visible=True
             self.creature1.visible=False
-            self.c=True
         elif self.c==True and self.p<750 and self.p<=self.s and self.p<=self.f:
             self.creature1bored.visible=True
             self.creature1.visible=False
-            self.c=True
         elif self.c==True and self.f>750 and self.s>750 and self.p>750:
             self.creature1.visible=True
 
         #adolescent    
-        if self.creature2.visible==True and self.f<750 and self.f<=self.s and self.f<=self.p:
+        if self.d==True and self.f<750 and self.f<=self.s and self.f<=self.p:
             self.creature2sad.visible=True
             self.creature2.visible=False
-            self.d=True
-        elif self.creature2.visible==True and self.s<750 and self.s<=self.f and self.f<=self.p:
+        elif self.d==True and self.s<750 and self.s<=self.f and self.f<=self.p:
             self.creature2tired.visible=True
             self.creature2.visible=False
-            self.d=True
-        elif self.creature2.visible==True and self.p<750 and self.p<=self.s and self.p<=self.f:
+        elif self.d==True and self.p<750 and self.p<=self.s and self.p<=self.f:
             self.creature2bored.visible=True
             self.creature2.visible=False
-            self.d=True
         elif self.d==True and self.f>750 and self.s>750 and self.p>750:
             self.creature2.visible=True
 
         #adult    
-        if self.creature3.visible==True and self.f<750 and self.f<=self.s and self.f<=self.p:
+        if self.e==True and self.f<750 and self.f<=self.s and self.f<=self.p:
             self.creature3sad.visible=True
             self.creature3.visible=False
-            self.e=True
-        elif self.creature3.visible==True and self.s<750 and self.s<=self.f and self.f<=self.p:
+        elif self.e==True and self.s<750 and self.s<=self.f and self.f<=self.p:
             self.creature3tired.visible=True
             self.creature3.visible=False
-            self.e=True
-        elif self.creature3.visible==True and self.p<750 and self.p<=self.s and self.p<=self.f:
+        elif self.e==True and self.p<750 and self.p<=self.s and self.p<=self.f:
             self.creature3bored.visible=True
             self.creature3.visible=False
-            self.e=True
         elif self.e==True and self.f>750 and self.s>750 and self.p>750:
             self.creature3.visible=True
 
