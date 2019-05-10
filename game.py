@@ -212,7 +212,7 @@ class Game(App):
         Game.listenKeyEvent("keyup", "left arrow", self.left2)
         #Game.listenKeyEvent("keydown", "up arrow", self.up)
         self.a=0
-        self.b=False
+        self.n=False
         self.c=True
         self.d=False
         self.e=False
@@ -231,7 +231,7 @@ class Game(App):
     def dosleep(self, event):
         print("self.s=" + str(self.s))
         self.night.visible=True
-        self.b=True
+        self.n=True
         self.a+=1  
         if 3<self.a<=6:
             self.c=False
@@ -394,7 +394,7 @@ class Game(App):
             self.creature3.visible=True
 
             
-        if self.b==True and self.s<1000:
+        if self.n==True and self.s<1000:
             self.s+=.75
         if self.s==1000:
             self.night.visible=False
