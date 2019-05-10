@@ -88,74 +88,56 @@ class Creature3sad(Sprite):
     def __init__(self, position):
         super().__init__(Creature1sad.asset, position)
         self.visible=False
-        self.vx = 0
-        self.vy = 0
+
 class Creature3bored(Sprite):
     asset=ImageAsset("images/Screenshot 2019-05-01 at 10 (6).png")
     
     def __init__(self, position):
         super().__init__(Creature1bored.asset, position)
         self.visible=False
-        self.vx = 0
-        self.vy = 0
+
 class Creature3tired(Sprite):
     asset=ImageAsset("images/Screenshot 2019-05-01 at 10 (1).png")
     
     def __init__(self, position):
         super().__init__(Creature1tired.asset, position)
         self.visible=False
-        self.vx = 0
-        self.vy = 0
-        
+
 class Food(Sprite):
     asset=ImageAsset("images/Screenshot 2019-05-03 at 10.png")
     def __init__(self, position):
         super().__init__(Food.asset, position)
-        self.vx = 0
-        self.vy = 0 
-
+        
 class Trampoline(Sprite):
     asset=ImageAsset("images/Screenshot 2019-05-06 at 9.png")
     def __init__(self, position):
         super().__init__(Trampoline.asset, position)
-        self.vx = 0
-        self.vy = 0 
         
 class Day(Sprite):
     asset = RectangleAsset(1000, 800, noline, day)
     def __init__(self, position):
         super().__init__(Day.asset, position)
-        self.vx = 0
-        self.vy = 0 
-        
+
 class Night(Sprite):
     asset = RectangleAsset(1000, 800, noline, night)
     def __init__(self, position):
         super().__init__(Night.asset, position)
         self.visible=False
-        self.vx = 0
-        self.vy = 0 
         
 class Feed(Sprite):
     asset = CircleAsset(20, noline, red)
     def __init__(self, position):
         super().__init__(Feed.asset, position)
-        self.vx = 0
-        self.vy = 0 
         
 class Sleep(Sprite):
     asset = CircleAsset(20, noline, yellow)
     def __init__(self, position):
         super().__init__(Sleep.asset, position)
-        self.vx = 0
-        self.vy = 0 
-        
+
 class Play(Sprite):
     asset = CircleAsset(20, noline, blue)
     def __init__(self, position):
         super().__init__(Play.asset, position)
-        self.vx = 0
-        self.vy = 0 
         
 class Game(App):
     def __init__(self,width,height):
