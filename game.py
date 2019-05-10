@@ -319,9 +319,9 @@ class Game(App):
         #player.vy = -10
                     
     def step(self):
-        self.f-=.5
-        self.s-=.5
-        self.p-=.5
+        self.f-=.25
+        self.s-=.25
+        self.p-=.25
     
         self.creature1.x += self.creature1.vx
         self.creature1sad.x += self.creature1sad.vx
