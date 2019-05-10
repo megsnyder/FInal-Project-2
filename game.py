@@ -206,11 +206,11 @@ class Game(App):
         Game.listenKeyEvent("keydown", "f", self.dofeed)
         Game.listenKeyEvent("keydown", "s", self.dosleep)
         Game.listenKeyEvent("keydown", "p", self.doplay)
-        Platform.listenKeyEvent("keydown", "right arrow", self.right)
-        Platform.listenKeyEvent("keyup", "right arrow", self.right2)
-        Platform.listenKeyEvent("keydown", "left arrow", self.left)
-        Platform.listenKeyEvent("keyup", "left arrow", self.left2)
-        #Platform.listenKeyEvent("keydown", "up arrow", self.up)
+        Game.listenKeyEvent("keydown", "right arrow", self.right)
+        Game.listenKeyEvent("keyup", "right arrow", self.right2)
+        Game.listenKeyEvent("keydown", "left arrow", self.left)
+        Game.listenKeyEvent("keyup", "left arrow", self.left2)
+        #Game.listenKeyEvent("keydown", "up arrow", self.up)
         self.a=0
         self.b=False
         self.c=False
@@ -322,6 +322,19 @@ class Game(App):
         self.f-=.5
         self.s-=.5
         self.p-=.5
+        self.creature1.vx = self.creature1.x
+        self.creature1sad.vx = self.creature1sad.x
+        self.creature1bored.vx = self.creature1bored.x
+        self.creature1tired.vx = self.creature1tired.x
+        self.creature2.vx = self.creature2.x
+        self.creature2sad.vx = self.creature2sad.x
+        self.creature2bored.vx = self.creature2bored.x
+        self.creature2tired.vx = self.creature2tired.x
+        self.creature3.vx = self.creature3.x
+        self.creature3sad.vx = self.creature3sad.x
+        self.creature3bored.vx = self.creature3bored.x
+        self.creature3tired.vx = self.creature3tired.x
+        
         #baby
         if self.creature1.visible==True and self.f<750 and self.f<self.s and self.f<self.p:
             self.creature1sad.visible=True
@@ -389,4 +402,3 @@ class Game(App):
             print("game over")
 myapp = Game(SCREEN_WIDTH,SCREEN_HEIGHT)
 myapp.run()
-print("Hello, world.")
