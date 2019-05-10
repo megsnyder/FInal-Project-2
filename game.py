@@ -206,6 +206,11 @@ class Game(App):
         Game.listenKeyEvent("keydown", "f", self.dofeed)
         Game.listenKeyEvent("keydown", "s", self.dosleep)
         Game.listenKeyEvent("keydown", "p", self.doplay)
+        Platform.listenKeyEvent("keydown", "right arrow", self.right)
+        Platform.listenKeyEvent("keyup", "right arrow", self.right2)
+        Platform.listenKeyEvent("keydown", "left arrow", self.left)
+        Platform.listenKeyEvent("keyup", "left arrow", self.left2)
+        #Platform.listenKeyEvent("keydown", "up arrow", self.up)
         self.a=0
         self.b=False
         self.c=False
@@ -254,6 +259,32 @@ class Game(App):
             self.p=1000
         self.trampoline=Trampoline((435,360))
         
+    def right(self, event):
+        self.creature1.vx = 2
+        self.creature1sad.vx = 2
+        self.creature1bored.vx = 2
+        self.creature1tired.vx = 2
+        self.creature2.vx = 2
+        self.creature2sad.vx = 2
+        self.creature2bored.vx = 2
+        self.creature2tired.vx = 2
+        self.creature3.vx = 2
+        self.creature3sad.vx = 2
+        self.creature3bored.vx = 2
+        self.creature3tired.vx = 2
+        
+    def left(self, event):
+        self.creature1.vx = -2
+        
+    def right2(self, event):
+        self.creature1.vx = 0
+        
+    def left2(self, event):
+        self.creature1.vx = 0
+       
+    #def up(self, event):
+        #player.vy = -10
+                    
     def step(self):
         self.f-=.5
         self.s-=.5
@@ -263,46 +294,58 @@ class Game(App):
             self.creature1sad.visible=True
             self.creature1.visible=False
             self.c=True
-        if self.creature1.visible==True and self.s<750 and self.s<self.f and self.f<self.p:
+        elif self.creature1.visible==True and self.s<750 and self.s<self.f and self.f<self.p:
             self.creature1tired.visible=True
             self.creature1.visible=False
             self.c=True
-        if self.creature1.visible==True and self.p<750 and self.p<self.s and self.p<self.f:
+        elif self.creature1.visible==True and self.p<750 and self.p<self.s and self.p<self.f:
             self.creature1bored.visible=True
             self.creature1.visible=False
             self.c=True
-        if self.c==True and self.f>750 and self.s>750 and self.p>750:
+        elif self.c==True and self.f>750 and self.s>750 and self.p>750:
             self.creature1.visible=True
+        elif self.creature1.visible==True and self.f<750 and self.s<750 and self.p<750:
+            self.creature1sad.visible=True
+            self.creature1.visible=False
+            self.c=True
         #adolescent    
         if self.creature2.visible==True and self.f<750 and self.f<self.s and self.f<self.p:
             self.creature2sad.visible=True
             self.creature2.visible=False
             self.d=True
-        if self.creature2.visible==True and self.s<750 and self.s<self.f and self.f<self.p:
+        elif self.creature2.visible==True and self.s<750 and self.s<self.f and self.f<self.p:
             self.creature2tired.visible=True
             self.creature2.visible=False
             self.d=True
-        if self.creature2.visible==True and self.p<750 and self.p<self.s and self.p<self.f:
+        elif self.creature2.visible==True and self.p<750 and self.p<self.s and self.p<self.f:
             self.creature2bored.visible=True
             self.creature2.visible=False
             self.d=True
-        if self.d==True and self.f>750 and self.s>750 and self.p>750:
+        elif self.d==True and self.f>750 and self.s>750 and self.p>750:
             self.creature2.visible=True
+        elif self.creature2.visible==True and self.f<750 and self.s<750 and self.p<750:
+            self.creature2sad.visible=True
+            self.creature2.visible=False
+            self.d=True
         #adult    
         if self.creature3.visible==True and self.f<750 and self.f<self.s and self.f<self.p:
             self.creature3sad.visible=True
             self.creature3.visible=False
             self.e=True
-        if self.creature3.visible==True and self.s<750 and self.s<self.f and self.f<self.p:
+        elif self.creature3.visible==True and self.s<750 and self.s<self.f and self.f<self.p:
             self.creature3tired.visible=True
             self.creature3.visible=False
             self.e=True
-        if self.creature3.visible==True and self.p<750 and self.p<self.s and self.p<self.f:
+        elif self.creature3.visible==True and self.p<750 and self.p<self.s and self.p<self.f:
             self.creature3bored.visible=True
             self.creature3.visible=False
             self.e=True
-        if self.e==True and self.f>750 and self.s>750 and self.p>750:
+        elif self.e==True and self.f>750 and self.s>750 and self.p>750:
             self.creature3.visible=True
+        elif self.creature3.visible==True and self.f<750 and self.s<750 and self.p<750:
+            self.creature3sad.visible=True
+            self.creature3.visible=False
+            self.e=True
             
         if self.b==True and self.s<1000:
             self.s+=.75
@@ -313,3 +356,4 @@ class Game(App):
             print("game over")
 myapp = Game(SCREEN_WIDTH,SCREEN_HEIGHT)
 myapp.run()
+print("Hello, world.")
