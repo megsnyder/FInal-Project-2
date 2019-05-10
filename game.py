@@ -206,11 +206,7 @@ class Game(App):
         Game.listenKeyEvent("keydown", "f", self.dofeed)
         Game.listenKeyEvent("keydown", "s", self.dosleep)
         Game.listenKeyEvent("keydown", "p", self.doplay)
-        Game.listenKeyEvent("keydown", "right arrow", self.right)
-        Game.listenKeyEvent("keyup", "right arrow", self.right2)
-        Game.listenKeyEvent("keydown", "left arrow", self.left)
-        Game.listenKeyEvent("keyup", "left arrow", self.left2)
-        #Game.listenKeyEvent("keydown", "up arrow", self.up)
+
         self.a=0
         self.n=False
         self.c=True
@@ -258,7 +254,7 @@ class Game(App):
         elif self.p<1000:
             self.p=1000
         self.trampoline=Trampoline((435,360))
-        
+      '''  
     def right(self, event):
         self.creature1.vx = 2
         self.creature1sad.vx = 2
@@ -314,7 +310,7 @@ class Game(App):
         self.creature3sad.vx = 0
         self.creature3bored.vx = 0
         self.creature3tired.vx = 0
-       
+       '''
     #def up(self, event):
         #player.vy = -10
                     
