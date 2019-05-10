@@ -294,18 +294,18 @@ class Game(App):
         self.p-=.25
         self.vx = random.randint(0,4)
     
-        self.creature1.x += self.creature1.vx
-        self.creature1sad.x += self.creature1.vx
-        self.creature1bored.x += self.creature1.vx
-        self.creature1tired.x += self.creature1.vx
-        self.creature2.x += self.creature1.vx
-        self.creature2sad.x += self.creature2sad.vx
-        self.creature2bored.x += self.creature2bored.vx
-        self.creature2tired.x += self.creature2tired.vx
-        self.creature3.x += self.creature3.vx
-        self.creature3sad.x += self.creature3sad.vx
-        self.creature3bored.x += self.creature3bored.vx
-        self.creature3tired.x += self.creature3tired.vx
+        self.creature1.x += self.vx
+        self.creature1sad.x += self.vx
+        self.creature1bored.x += self.vx
+        self.creature1tired.x += self.vx
+        self.creature2.x += self.vx
+        self.creature2sad.x += self.vx
+        self.creature2bored.x += self.vx
+        self.creature2tired.x += self.vx
+        self.creature3.x += self.vx
+        self.creature3sad.x += self.vx
+        self.creature3bored.x += self.vx
+        self.creature3tired.x += self.vx
 
         #baby
         if self.c==True and self.f<750 and self.f<=self.s and self.f<=self.p:
