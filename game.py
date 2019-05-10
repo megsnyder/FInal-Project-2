@@ -336,24 +336,21 @@ class Game(App):
         self.creature3tired.vx += self.creature3tired.x
         
         #baby
-        if self.creature1.visible==True and self.f<750 and self.f<self.s and self.f<self.p:
+        if self.creature1.visible==True and self.f<750 and self.f<=self.s and self.f<=self.p:
             self.creature1sad.visible=True
             self.creature1.visible=False
             self.c=True
-        elif self.creature1.visible==True and self.s<750 and self.s<self.f and self.f<self.p:
+        elif self.creature1.visible==True and self.s<750 and self.s<=self.f and self.f<=self.p:
             self.creature1tired.visible=True
             self.creature1.visible=False
             self.c=True
-        elif self.creature1.visible==True and self.p<750 and self.p<self.s and self.p<self.f:
+        elif self.creature1.visible==True and self.p<750 and self.p<=self.s and self.p<=self.f:
             self.creature1bored.visible=True
             self.creature1.visible=False
             self.c=True
         elif self.c==True and self.f>750 and self.s>750 and self.p>750:
             self.creature1.visible=True
-        elif self.creature1.visible==True and self.f<750 and self.s<750 and self.p<750:
-            self.creature1sad.visible=True
-            self.creature1.visible=False
-            self.c=True
+
         #adolescent    
         if self.creature2.visible==True and self.f<750 and self.f<self.s and self.f<self.p:
             self.creature2sad.visible=True
