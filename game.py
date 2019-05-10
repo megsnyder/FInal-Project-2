@@ -292,7 +292,7 @@ class Game(App):
         self.f-=.25
         self.s-=.25
         self.p-=.25
-        self.vx = random.randint(0,4)
+        self.vx = random.randint(-4,4)
     
         self.creature1.x += self.vx
         self.creature1sad.x += self.vx
