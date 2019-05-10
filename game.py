@@ -1,4 +1,5 @@
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset, ImageAsset, Frame
+import random
 
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 800
@@ -179,6 +180,8 @@ class Game(App):
         Game.listenKeyEvent("keydown", "p", self.doplay)
 
         self.a=0
+        self.vx = 0
+        self.vy = 0
         self.n=False
         self.c=True
         self.d=False
@@ -225,7 +228,7 @@ class Game(App):
         elif self.p<1000:
             self.p=1000
         self.trampoline=Trampoline((435,360))
-      '''  
+    '''  
     def right(self, event):
         self.creature1.vx = 2
         self.creature1sad.vx = 2
@@ -281,7 +284,7 @@ class Game(App):
         self.creature3sad.vx = 0
         self.creature3bored.vx = 0
         self.creature3tired.vx = 0
-       '''
+    '''
     #def up(self, event):
         #player.vy = -10
                     
@@ -289,8 +292,7 @@ class Game(App):
         self.f-=.25
         self.s-=.25
         self.p-=.25
-        
-        self.creature1.vx = 0
+        self.vx = random.randint(0,4)
     
         self.creature1.x += self.creature1.vx
         self.creature1sad.x += self.creature1.vx
