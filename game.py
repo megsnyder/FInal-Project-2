@@ -20,6 +20,12 @@ noline = LineStyle(0, white)
 grey = Color(0x515979, 1.0)
 green2 = Color(0x40793a, 1.0)
 
+class Screen(Sprite):
+    asset = RectangleAsset(1000, 800, noline, black)
+    def __init__(self, position):
+        super().__init__(Screen.asset, position)
+        self.visible=False
+
 class Creature1(Sprite):
     asset=ImageAsset("images/Screenshot 2019-04-30 at 10.png")
     
@@ -181,6 +187,7 @@ class Game(App):
         self.feed=Feed((20,500))
         self.sleep=Sleep((60,500))
         self.play=Play((100,500))
+        self.screen=Screen((0,0))
         Game.listenKeyEvent("keydown", "f", self.dofeed)
         Game.listenKeyEvent("keydown", "s", self.dosleep)
         Game.listenKeyEvent("keydown", "p", self.doplay)
@@ -253,9 +260,9 @@ class Game(App):
             self.f-=.25
             self.s-=.25
             self.p-=.25
-        '''
+        
         self.m+=1
-        self.vx = random.randint(-1,1)
+        self.vx = random.randint(-4,4)
         if self.m==20:
             self.creature1.x += self.vx
             self.creature1sad.x += self.vx
@@ -270,7 +277,7 @@ class Game(App):
             self.creature3bored.x += self.vx
             self.creature3tired.x += self.vx
             self.m=0
-        '''
+        
         #baby
         if self.c==True and self.n==False and self.f<750 and self.f<=self.s and self.f<=self.p:
             self.creature1sad.visible=True
@@ -337,5 +344,6 @@ class Game(App):
             self.n=False
         if self.f==0 or self.s==0 or self.p==0:
             print("game over")
+            self.screen.visible=True
 myapp = Game(SCREEN_WIDTH,SCREEN_HEIGHT)
 myapp.run()
