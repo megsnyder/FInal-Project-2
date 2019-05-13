@@ -194,6 +194,7 @@ class Game(App):
 
         self.a=0
         self.vx = 0
+        self.vy = 0
         self.m = 0
         self.n=False
         self.c=True
@@ -265,7 +266,7 @@ class Game(App):
         if self.m==40:
             self.m=0
             self.vx = random.randint(-2,2)
-            self.vy = random.randint(-2,2)
+            self.vy = random.randint(-1,1)
     
         self.creature1.x += self.vx
         self.creature1sad.x += self.vx
