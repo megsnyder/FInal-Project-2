@@ -262,21 +262,22 @@ class Game(App):
             self.p-=.25
         
         self.m+=1
-        self.vx = random.randint(-4,4)
         if self.m==20:
-            self.creature1.x += self.vx
-            self.creature1sad.x += self.vx
-            self.creature1bored.x += self.vx
-            self.creature1tired.x += self.vx
-            self.creature2.x += self.vx
-            self.creature2sad.x += self.vx
-            self.creature2bored.x += self.vx
-            self.creature2tired.x += self.vx
-            self.creature3.x += self.vx
-            self.creature3sad.x += self.vx
-            self.creature3bored.x += self.vx
-            self.creature3tired.x += self.vx
             self.m=0
+            self.vx = random.randint(-4,4)
+    
+        self.creature1.x += self.vx
+        self.creature1sad.x += self.vx
+        self.creature1bored.x += self.vx
+        self.creature1tired.x += self.vx
+        self.creature2.x += self.vx
+        self.creature2sad.x += self.vx
+        self.creature2bored.x += self.vx
+        self.creature2tired.x += self.vx
+        self.creature3.x += self.vx
+        self.creature3sad.x += self.vx
+        self.creature3bored.x += self.vx
+        self.creature3tired.x += self.vx
         
         #baby
         if self.c==True and self.n==False and self.f<750 and self.f<=self.s and self.f<=self.p:
