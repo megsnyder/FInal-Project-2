@@ -181,7 +181,7 @@ class Game(App):
 
         self.a=0
         self.vx = 0
-        self.vy = 0
+        self.m = 0
         self.n=False
         self.c=True
         self.d=False
@@ -228,84 +228,27 @@ class Game(App):
         elif self.p<1000:
             self.p=1000
         self.trampoline=Trampoline((435,360))
-    '''  
-    def right(self, event):
-        self.creature1.vx = 2
-        self.creature1sad.vx = 2
-        self.creature1bored.vx = 2
-        self.creature1tired.vx = 2
-        self.creature2.vx = 2
-        self.creature2sad.vx = 2
-        self.creature2bored.vx = 2
-        self.creature2tired.vx = 2
-        self.creature3.vx = 2
-        self.creature3sad.vx = 2
-        self.creature3bored.vx = 2
-        self.creature3tired.vx = 2
-        
-    def left(self, event):
-        self.creature1.vx = -2
-        self.creature1sad.vx = -2
-        self.creature1bored.vx = -2
-        self.creature1tired.vx = -2
-        self.creature2.vx = -2
-        self.creature2sad.vx = -2
-        self.creature2bored.vx = -2
-        self.creature2tired.vx = -2
-        self.creature3.vx = -2
-        self.creature3sad.vx = -2
-        self.creature3bored.vx = -2
-        self.creature3tired.vx = -2
-        
-    def right2(self, event):
-        self.creature1.vx = 0
-        self.creature1sad.vx = 0
-        self.creature1bored.vx = 0
-        self.creature1tired.vx = 0
-        self.creature2.vx = 0
-        self.creature2sad.vx = 0
-        self.creature2bored.vx = 0
-        self.creature2tired.vx = 0
-        self.creature3.vx = 0
-        self.creature3sad.vx = 0
-        self.creature3bored.vx = 0
-        self.creature3tired.vx = 0
-        
-    def left2(self, event):
-        self.creature1.vx = 0
-        self.creature1sad.vx = 0
-        self.creature1bored.vx = 0
-        self.creature1tired.vx = 0
-        self.creature2.vx = 0
-        self.creature2sad.vx = 0
-        self.creature2bored.vx = 0
-        self.creature2tired.vx = 0
-        self.creature3.vx = 0
-        self.creature3sad.vx = 0
-        self.creature3bored.vx = 0
-        self.creature3tired.vx = 0
-    '''
-    #def up(self, event):
-        #player.vy = -10
                     
     def step(self):
         self.f-=.25
         self.s-=.25
         self.p-=.25
-        self.vx = random.randint(-4,4)
-    
-        self.creature1.x += self.vx
-        self.creature1sad.x += self.vx
-        self.creature1bored.x += self.vx
-        self.creature1tired.x += self.vx
-        self.creature2.x += self.vx
-        self.creature2sad.x += self.vx
-        self.creature2bored.x += self.vx
-        self.creature2tired.x += self.vx
-        self.creature3.x += self.vx
-        self.creature3sad.x += self.vx
-        self.creature3bored.x += self.vx
-        self.creature3tired.x += self.vx
+        self.m+=1
+        self.vx = random.randint(-1,1)
+        if self.m==20
+            self.creature1.x += self.vx
+            self.creature1sad.x += self.vx
+            self.creature1bored.x += self.vx
+            self.creature1tired.x += self.vx
+            self.creature2.x += self.vx
+            self.creature2sad.x += self.vx
+            self.creature2bored.x += self.vx
+            self.creature2tired.x += self.vx
+            self.creature3.x += self.vx
+            self.creature3sad.x += self.vx
+            self.creature3bored.x += self.vx
+            self.creature3tired.x += self.vx
+            self.m=0
 
         #baby
         if self.c==True and self.f<750 and self.f<=self.s and self.f<=self.p:
