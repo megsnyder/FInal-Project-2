@@ -139,6 +139,12 @@ class Play(Sprite):
     asset = CircleAsset(20, noline, blue)
     def __init__(self, position):
         super().__init__(Play.asset, position)
+
+class Bed(Sprite):
+    asset = ImageAsset("images/Screenshot 2019-05-13 at 10.png")
+    def __init__(self, position):
+        super().__init__(Bed.asset, position)
+        self.visible=False
         
 class Game(App):
     def __init__(self,width,height):
@@ -154,7 +160,7 @@ class Game(App):
         Sprite(bushes, (925,280))
         Sprite(bushes, (900,300))
         Sprite(bushes, (950,320))
-    
+        self.bed=Bed((270,320))
         self.creature3=Creature3((290,225))
         self.creature3sad=Creature3sad((297,295))
         self.creature3tired=Creature3tired((272,297))
@@ -201,6 +207,19 @@ class Game(App):
     def dosleep(self, event):
         print("self.s=" + str(self.s))
         self.night.visible=True
+        self.bed.visible=True
+        self.creature1.visible=False
+        self.creature1sad.visible=False
+        self.creature1tired.visible=False
+        self.creature1bored.visible=False
+        self.creature2.visible=False
+        self.creature2sad.visible=False
+        self.creature2tired.visible=False
+        self.creature2bored.visible=False
+        self.creature3.visible=False
+        self.creature3sad.visible=False
+        self.creature3tired.visible=False
+        self.creature3bored.visible=False
         self.n=True
         self.a+=1  
         if 3<self.a<=6:
@@ -230,12 +249,14 @@ class Game(App):
         self.trampoline=Trampoline((435,360))
                     
     def step(self):
-        self.f-=.25
-        self.s-=.25
-        self.p-=.25
+        if self.n==False:
+            self.f-=.25
+            self.s-=.25
+            self.p-=.25
+        '''
         self.m+=1
         self.vx = random.randint(-1,1)
-        if self.m==20
+        if self.m==20:
             self.creature1.x += self.vx
             self.creature1sad.x += self.vx
             self.creature1bored.x += self.vx
@@ -249,62 +270,62 @@ class Game(App):
             self.creature3bored.x += self.vx
             self.creature3tired.x += self.vx
             self.m=0
-
+        '''
         #baby
-        if self.c==True and self.f<750 and self.f<=self.s and self.f<=self.p:
+        if self.c==True and self.n==False and self.f<750 and self.f<=self.s and self.f<=self.p:
             self.creature1sad.visible=True
             self.creature1.visible=False
             self.creature1bored.visible=False
             self.creature1tired.visible=False
-        elif self.c==True and self.s<750 and self.s<=self.f and self.f<=self.p:
+        elif self.c==True and self.n==False and self.s<750 and self.s<=self.f and self.f<=self.p:
             self.creature1tired.visible=True
             self.creature1.visible=False
             self.creature1bored.visible=False
             self.creature1sad.visible=False
-        elif self.c==True and self.p<750 and self.p<=self.s and self.p<=self.f:
+        elif self.c==True and self.n==False and self.p<750 and self.p<=self.s and self.p<=self.f:
             self.creature1bored.visible=True
             self.creature1.visible=False
             self.creature1sad.visible=False
             self.creature1tired.visible=False
-        elif self.c==True and self.f>750 and self.s>750 and self.p>750:
+        elif self.c==True and self.n==False and self.f>750 and self.s>750 and self.p>750:
             self.creature1.visible=True
 
         #adolescent    
-        if self.d==True and self.f<750 and self.f<=self.s and self.f<=self.p:
+        if self.d==True and self.n==False and self.f<750 and self.f<=self.s and self.f<=self.p:
             self.creature2sad.visible=True
             self.creature2.visible=False
             self.creature2bored.visible=False
             self.creature2tired.visible=False
-        elif self.d==True and self.s<750 and self.s<=self.f and self.f<=self.p:
+        elif self.d==True and self.n==False and self.s<750 and self.s<=self.f and self.f<=self.p:
             self.creature2tired.visible=True
             self.creature2.visible=False
             self.creature2bored.visible=False
             self.creature2sad.visible=False
-        elif self.d==True and self.p<750 and self.p<=self.s and self.p<=self.f:
+        elif self.d==True and self.n==False and self.p<750 and self.p<=self.s and self.p<=self.f:
             self.creature2bored.visible=True
             self.creature2.visible=False
             self.creature2sad.visible=False
             self.creature2tired.visible=False
-        elif self.d==True and self.f>750 and self.s>750 and self.p>750:
+        elif self.d==True and self.n==False and self.f>750 and self.s>750 and self.p>750:
             self.creature2.visible=True
 
         #adult    
-        if self.e==True and self.f<750 and self.f<=self.s and self.f<=self.p:
+        if self.e==True and self.n==False and self.f<750 and self.f<=self.s and self.f<=self.p:
             self.creature3sad.visible=True
             self.creature3.visible=False
             self.creature3bored.visible=False
             self.creature3tired.visible=False
-        elif self.e==True and self.s<750 and self.s<=self.f and self.f<=self.p:
+        elif self.e==True and self.n==False and self.s<750 and self.s<=self.f and self.f<=self.p:
             self.creature3tired.visible=True
             self.creature3.visible=False
             self.creature3bored.visible=False
             self.creature3sad.visible=False
-        elif self.e==True and self.p<750 and self.p<=self.s and self.p<=self.f:
+        elif self.e==True and self.n==False and self.p<750 and self.p<=self.s and self.p<=self.f:
             self.creature3bored.visible=True
             self.creature3.visible=False
             self.creature3sad.visible=False
             self.creature3tired.visible=False
-        elif self.e==True and self.f>750 and self.s>750 and self.p>750:
+        elif self.e==True and self.n==False and self.f>750 and self.s>750 and self.p>750:
             self.creature3.visible=True
 
             
@@ -312,6 +333,7 @@ class Game(App):
             self.s+=.75
         if self.s==1000:
             self.night.visible=False
+            self.bed.visible=False
             self.n=False
         if self.f==0 or self.s==0 or self.p==0:
             print("game over")
