@@ -171,7 +171,7 @@ class Game(App):
         self.food=Food((20,220))
         self.food=Food((950,300))
         self.food=Food((920,350))
-        self.creature1=Creature1((300,300))
+        self.creature1=Creature1((self.creature1.x,self.creature1.y))
         self.creature3=Creature3((self.creature1.x - 10,self.creature1.y - 75))
         self.creature3sad=Creature3sad((self.creature1.x - 3,self.creature1.y - 5))
         self.creature3tired=Creature3tired((self.creature1.x - 28,self.creature1.y - 3))
@@ -192,6 +192,8 @@ class Game(App):
         Game.listenKeyEvent("keydown", "s", self.dosleep)
         Game.listenKeyEvent("keydown", "p", self.doplay)
 
+        self.creature1.x=300
+        self.creature1.y=300
         self.a=0
         self.vx = 0
         self.vy = 0
