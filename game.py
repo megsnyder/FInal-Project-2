@@ -215,7 +215,7 @@ class Game(App):
             self.f+=250
         elif self.f<1000:
             self.f=1000
-        self.food=Food((self.x + 10,self.y + 10))
+        self.food=Food((self.x + 30,self.y + 50))
         
     def dosleep(self, event):
         self.si=True
@@ -275,7 +275,7 @@ class Game(App):
             self.vx = random.randint(-2,2)
             self.vy = random.randint(-1,1)
             
-        if 0 < self.x <1000 and self.fi ==False and self.si==False and self.pi==False:
+        if -10 < self.x <1000 and self.fi ==False and self.si==False and self.pi==False:
             self.x += self.vx
 
         if 150 < self.y < 850 and self.fi ==False and self.si==False and self.pi==False:
@@ -363,14 +363,20 @@ class Game(App):
             self.creature3tired.visible=False
         elif self.e==True and self.n==False and self.f>750 and self.s>750 and self.p>750:
             self.creature3.visible=True
-
+        
+        if self.f==True and self.f>=1000:
+            self.fi=False
+            
+        if self.p==True and self.p>=1000:
+            self.pi=False
             
         if self.n==True and self.s<1000:
-            self.s+=.75
+            self.s+=.25
         if self.s>=1000:
             self.night.visible=False
             self.bed.visible=False
             self.n=False
+            self.si=False
         if self.f==0 or self.s==0 or self.p==0:
             print("game over")
             self.screen.visible=True
