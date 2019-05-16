@@ -165,6 +165,9 @@ class Game(App):
         self.c=True
         self.d=False
         self.e=False
+        self.fi=False
+        self.si=False
+        self.pi=False
         self.f=1000
         self.s=1000
         self.p=1000
@@ -207,13 +210,15 @@ class Game(App):
 
     def dofeed(self, event):
         print("self.f=" + str(self.f))
+        self.fi=True
         if self.f<750:
             self.f+=250
         elif self.f<1000:
             self.f=1000
-        self.food=Food((self.creature1.x + 10,self.creature1.y + 10))
+        self.food=Food((self.x + 10,self.y + 10))
         
     def dosleep(self, event):
+        self.si=True
         print("self.s=" + str(self.s))
         self.night.visible=True
         self.bed.visible=True
@@ -250,12 +255,13 @@ class Game(App):
             self.creature3.visible=True
                         
     def doplay(self, event):
+        self.pi=True
         print("self.p=" + str(self.p))
         if self.p<750:
             self.p+=250
         elif self.p<1000:
             self.p=1000
-        self.trampoline=Trampoline((self.creature1.x + 10,self.creature1.y + 50))
+        self.trampoline=Trampoline((self.x + 10,self.y + 50))
                     
     def step(self):
         if self.n==False:
@@ -269,13 +275,38 @@ class Game(App):
             self.vx = random.randint(-2,2)
             self.vy = random.randint(-1,1)
             
-        if 0 < self.creature1.x <1000:
+        if 0 < self.x <1000 and self.fi ==False and self.si==False and self.pi==False:
             self.x += self.vx
 
-        if 150 < self.creature1.y < 850:
+        if 150 < self.y < 850 and self.fi ==False and self.si==False and self.pi==False:
             self.y += self.vy
 
-            
+        self.creature1.x=self.x
+        self.creature1sad.x=self.x
+        self.creature1bored.x=self.x
+        self.creature1tired.x=self.x
+        self.creature2.x=self.x
+        self.creature2sad.x=self.x
+        self.creature2bored.x=self.x
+        self.creature2tired.x=self.x
+        self.creature3.x=self.x
+        self.creature3sad.x=self.x
+        self.creature3bored.x=self.x
+        self.creature3tired.x=self.x
+        
+        self.creature1.y=self.y
+        self.creature1sad.y=self.y
+        self.creature1bored.y=self.y
+        self.creature1tired.y=self.y
+        self.creature2.y=self.y
+        self.creature2sad.y=self.y
+        self.creature2bored.y=self.y
+        self.creature2tired.y=self.y
+        self.creature3.y=self.y
+        self.creature3sad.y=self.y
+        self.creature3bored.y=self.y
+        self.creature3tired.y=self.y
+        
         #baby
         if self.c==True and self.n==False and self.f<750 and self.f<=self.s and self.f<=self.p:
             self.creature1sad.visible=True
