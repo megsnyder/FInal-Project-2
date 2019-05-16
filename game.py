@@ -155,6 +155,19 @@ class Bed(Sprite):
 class Game(App):
     def __init__(self,width,height):
         super().__init__(width,height)
+        self.x=300
+        self.y=300
+        self.a=0
+        self.vx = 0
+        self.vy = 0
+        self.m = 0
+        self.n=False
+        self.c=True
+        self.d=False
+        self.e=False
+        self.f=1000
+        self.s=1000
+        self.p=1000
         self.day=Day((0,0))
         self.night=Night((0,0))
         ground_asset = RectangleAsset(self.width, 400, noline, green)
@@ -191,20 +204,6 @@ class Game(App):
         Game.listenKeyEvent("keydown", "f", self.dofeed)
         Game.listenKeyEvent("keydown", "s", self.dosleep)
         Game.listenKeyEvent("keydown", "p", self.doplay)
-
-        self.creature1.x=300
-        self.creature1.y=300
-        self.a=0
-        self.vx = 0
-        self.vy = 0
-        self.m = 0
-        self.n=False
-        self.c=True
-        self.d=False
-        self.e=False
-        self.f=1000
-        self.s=1000
-        self.p=1000
 
     def dofeed(self, event):
         print("self.f=" + str(self.f))
