@@ -367,7 +367,7 @@ class Game(App):
             
         if self.n==True and self.s<1000:
             self.s+=.75
-        if self.s==1000:
+        if self.s>=1000:
             self.night.visible=False
             self.bed.visible=False
             self.n=False
