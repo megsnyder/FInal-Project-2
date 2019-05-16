@@ -167,6 +167,11 @@ class Game(App):
         Sprite(bushes, (900,300))
         Sprite(bushes, (950,320))
         self.bed=Bed((270,320))
+        self.food=Food((100,200))
+        self.food=Food((60,250))
+        self.food=Food((20,220))
+        self.food=Food((950,300))
+        self.food=Food((920,350))
         self.creature3=Creature3((290,225))
         self.creature3sad=Creature3sad((297,295))
         self.creature3tired=Creature3tired((272,297))
@@ -179,11 +184,6 @@ class Game(App):
         self.creature1sad=Creature1sad((297,295))
         self.creature1tired=Creature1tired((272,297))
         self.creature1bored=Creature1bored((291,300))
-        self.food=Food((100,200))
-        self.food=Food((60,250))
-        self.food=Food((20,220))
-        self.food=Food((950,300))
-        self.food=Food((920,350))
         self.feed=Feed((20,500))
         self.sleep=Sleep((60,500))
         self.play=Play((100,500))
@@ -267,33 +267,34 @@ class Game(App):
             self.m=0
             self.vx = random.randint(-2,2)
             self.vy = random.randint(-1,1)
-    
-        self.creature1.x += self.vx
-        self.creature1sad.x += self.vx
-        self.creature1bored.x += self.vx
-        self.creature1tired.x += self.vx
-        self.creature2.x += self.vx
-        self.creature2sad.x += self.vx
-        self.creature2bored.x += self.vx
-        self.creature2tired.x += self.vx
-        self.creature3.x += self.vx
-        self.creature3sad.x += self.vx
-        self.creature3bored.x += self.vx
-        self.creature3tired.x += self.vx
-        
-        self.creature1.y += self.vy
-        self.creature1sad.y += self.vy
-        self.creature1bored.y += self.vy
-        self.creature1tired.y += self.vy
-        self.creature2.y += self.vy
-        self.creature2sad.y += self.vy
-        self.creature2bored.y += self.vy
-        self.creature2tired.y += self.vy
-        self.creature3.y += self.vy
-        self.creature3sad.y += self.vy
-        self.creature3bored.y += self.vy
-        self.creature3tired.y += self.vy
-        
+            
+        if 0 < self.creature1.x <1000:
+            self.creature1.x += self.vx
+            self.creature1sad.x += self.vx
+            self.creature1bored.x += self.vx
+            self.creature1tired.x += self.vx
+            self.creature2.x += self.vx
+            self.creature2sad.x += self.vx
+            self.creature2bored.x += self.vx
+            self.creature2tired.x += self.vx
+            self.creature3.x += self.vx
+            self.creature3sad.x += self.vx
+            self.creature3bored.x += self.vx
+            self.creature3tired.x += self.vx
+        if 100 < self.creature1.y < 850:
+            self.creature1.y += self.vy
+            self.creature1sad.y += self.vy
+            self.creature1bored.y += self.vy
+            self.creature1tired.y += self.vy
+            self.creature2.y += self.vy
+            self.creature2sad.y += self.vy
+            self.creature2bored.y += self.vy
+            self.creature2tired.y += self.vy
+            self.creature3.y += self.vy
+            self.creature3sad.y += self.vy
+            self.creature3bored.y += self.vy
+            self.creature3tired.y += self.vy
+            
         #baby
         if self.c==True and self.n==False and self.f<750 and self.f<=self.s and self.f<=self.p:
             self.creature1sad.visible=True
