@@ -166,24 +166,24 @@ class Game(App):
         Sprite(bushes, (925,280))
         Sprite(bushes, (900,300))
         Sprite(bushes, (950,320))
-        self.bed=Bed((270,320))
         self.food=Food((100,200))
         self.food=Food((60,250))
         self.food=Food((20,220))
         self.food=Food((950,300))
         self.food=Food((920,350))
-        self.creature3=Creature3((290,225))
-        self.creature3sad=Creature3sad((297,295))
-        self.creature3tired=Creature3tired((272,297))
+        self.creature1=Creature1((300,300))
+        self.creature3=Creature3((self.creature1.x - 10,self.creature1.y - 75))
+        self.creature3sad=Creature3sad((self.creature1.x - 3,self.creature1.y - 5))
+        self.creature3tired=Creature3tired((self.creature1.x - 28,self.creature1.y - 3))
         self.creature3bored=Creature1bored((291,300))
         self.creature2=Creature2((300,270))
         self.creature2sad=Creature2sad((297,295))
         self.creature2tired=Creature2tired((272,297))
         self.creature2bored=Creature2bored((291,300))
-        self.creature1=Creature1((300,300))
         self.creature1sad=Creature1sad((297,295))
         self.creature1tired=Creature1tired((272,297))
         self.creature1bored=Creature1bored((291,300))
+        self.bed=Bed((self.creature1.x + 10,self.creature1.y + 10))
         self.feed=Feed((20,500))
         self.sleep=Sleep((60,500))
         self.play=Play((100,500))
@@ -210,7 +210,7 @@ class Game(App):
             self.f+=250
         elif self.f<1000:
             self.f=1000
-        self.food=Food((335,360))
+        self.food=Food((self.creature1.x + 10,self.creature1.y + 10))
         
     def dosleep(self, event):
         print("self.s=" + str(self.s))
@@ -254,7 +254,7 @@ class Game(App):
             self.p+=250
         elif self.p<1000:
             self.p=1000
-        self.trampoline=Trampoline((435,360))
+        self.trampoline=Trampoline((self.creature1.x + 10,self.creature1.y + 50))
                     
     def step(self):
         if self.n==False:
@@ -281,7 +281,7 @@ class Game(App):
             self.creature3sad.x += self.vx
             self.creature3bored.x += self.vx
             self.creature3tired.x += self.vx
-        if 100 < self.creature1.y < 850:
+        if 150 < self.creature1.y < 850:
             self.creature1.y += self.vy
             self.creature1sad.y += self.vy
             self.creature1bored.y += self.vy
