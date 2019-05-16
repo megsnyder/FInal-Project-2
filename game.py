@@ -186,7 +186,7 @@ class Game(App):
         self.food=Food((920,350))
         self.creature1=Creature1((self.x,self.y))
         self.creature3=Creature3((self.x - 10,self.y - 75))
-        self.creature3sad=Creature3sad((self.creature1.x - 3,self.creature1.y - 5))
+        self.creature3sad=Creature3sad((self.x - 3,self.y - 5))
         self.creature3tired=Creature3tired((self.creature1.x - 28,self.creature1.y - 3))
         self.creature3bored=Creature1bored((self.creature1.x - 9,self.creature1.y))
         self.creature2=Creature2((self.creature1.x,self.creature1.y - 30))
@@ -270,10 +270,10 @@ class Game(App):
             self.vy = random.randint(-1,1)
             
         if 0 < self.creature1.x <1000:
-            self.creature1.x += self.vx
+            self.x += self.vx
 
         if 150 < self.creature1.y < 850:
-            self.creature1.y += self.vy
+            self.y += self.vy
 
             
         #baby
