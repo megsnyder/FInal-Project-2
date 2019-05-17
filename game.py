@@ -209,17 +209,11 @@ class Game(App):
         Game.listenKeyEvent("keydown", "p", self.doplay)
 
     def dofeed(self, event):
-        print("self.f=" + str(self.f))
         self.fi=True
-        if self.f<750:
-            self.f+=250
-        elif self.f<1000:
-            self.f=1000
         self.food=Food((self.x + 30,self.y + 50))
         
     def dosleep(self, event):
         self.si=True
-        print("self.s=" + str(self.s))
         self.night.visible=True
         self.bed.visible=True
         self.creature1.visible=False
@@ -256,11 +250,6 @@ class Game(App):
                         
     def doplay(self, event):
         self.pi=True
-        print("self.p=" + str(self.p))
-        if self.p<750:
-            self.p+=250
-        elif self.p<1000:
-            self.p=1000
         self.trampoline=Trampoline((self.x + 10,self.y + 50))
                     
     def step(self):
@@ -369,6 +358,7 @@ class Game(App):
         
         if self.f==True and self.f>=1000:
             self.fi=False
+        if self.f==True and self.f<750:
             
         if self.p==True and self.p>=1000:
             self.pi=False
