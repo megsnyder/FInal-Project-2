@@ -270,15 +270,18 @@ class Game(App):
             self.p-=.25
         
         self.m+=1
-        if self.m==40:
+        if self.m==80:
             self.m=0
-            self.vx = random.randint(-2,2)
+            self.vx = random.randint(-1,1)
             self.vy = random.randint(-1,1)
+        if self.m==50:
+            self.vx = 0
+            self.vy = 0
             
         if -10 < self.x <1000 and self.fi ==False and self.si==False and self.pi==False:
             self.x += self.vx
 
-        if 150 < self.y < 850 and self.fi ==False and self.si==False and self.pi==False:
+        if 130 < self.y < 750 and self.fi ==False and self.si==False and self.pi==False:
             self.y += self.vy
 
         self.creature1.x=self.x
