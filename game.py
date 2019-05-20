@@ -221,7 +221,7 @@ class Game(App):
         self.fi=True
         self.food=Food((self.x + 30,self.y + 50))
         self.food2=Food2((self.x + 30,self.y + 50))
-        self.food3=Food3((self.x + 30,self.y + 50))
+        #self.food3=Food3((self.x + 30,self.y + 50))
         
     def dosleep(self, event):
         self.night.visible=True
