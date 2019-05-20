@@ -114,7 +114,17 @@ class Food(Sprite):
     asset=ImageAsset("images/Screenshot 2019-05-03 at 10.png")
     def __init__(self, position):
         super().__init__(Food.asset, position)
+
+class Food2(Sprite):
+    asset=ImageAsset("images/Screenshot 2019-05-20 at 10.09.14 AM.png")
+    def __init__(self, position):
+        super().__init__(Food2.asset, position)
         
+class Food3(Sprite):
+    asset=ImageAsset("images/Screenshot 2019-05-20 at 10.09.21 AM.png")
+    def __init__(self, position):
+        super().__init__(Food3.asset, position)
+
 class Trampoline(Sprite):
     asset=ImageAsset("images/Screenshot 2019-05-06 at 9.png")
     def __init__(self, position):
