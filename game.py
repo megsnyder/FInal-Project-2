@@ -121,7 +121,7 @@ class Food2(Sprite):
         super().__init__(Food2.asset, position)
         
 class Food3(Sprite):
-    asset=ImageAsset("Screenshot 2019-05-20 at 10 (1).png")
+    asset=ImageAsset("images/Screenshot 2019-05-20 at 10 (1).png")
     def __init__(self, position):
         super().__init__(Food3.asset, position)
 
@@ -221,7 +221,7 @@ class Game(App):
         self.fi=True
         self.food=Food((self.x + 30,self.y + 50))
         self.food2=Food2((self.x + 30,self.y + 50))
-        #self.food3=Food3((self.x + 30,self.y + 50))
+        self.food3=Food3((self.x + 30,self.y + 50))
         
     def dosleep(self, event):
         self.night.visible=True
