@@ -116,7 +116,7 @@ class Food(Sprite):
         super().__init__(Food.asset, position)
 
 class Food2(Sprite):
-    asset=ImageAsset("images/Screenshot 2019-05-20 at 10.png")
+    asset=ImageAsset()
     def __init__(self, position):
         super().__init__(Food2.asset, position)
         
