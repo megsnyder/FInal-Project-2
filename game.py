@@ -270,7 +270,7 @@ class Game(App):
         if -10 < self.x <1000 and self.fi ==False and self.si==False and self.pi==False:
             self.x += self.vx
 
-        if 130 < self.y < 750 and self.fi ==False and self.si==False and self.pi==False:
+        if 130 < self.y < 700 and self.fi ==False and self.si==False and self.pi==False:
             self.y += self.vy
 
         self.creature1.x=self.x
@@ -358,8 +358,8 @@ class Game(App):
         
         if self.f==True and self.f>=1000:
             self.fi=False
-        if self.f==True and self.f<750:
-            
+        #if self.f==True and self.f<750:
+            #make like sleep
         if self.p==True and self.p>=1000:
             self.pi=False
             
