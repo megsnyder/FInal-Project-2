@@ -220,7 +220,7 @@ class Game(App):
     def dofeed(self, event):
         self.fi=True
         self.food=Food((self.x + 30,self.y + 50))
-        #self.food2=Food2((self.x + 29,self.y + 69))
+        self.food2=Food2((self.x + 29,self.y + 69))
         self.food3=Food3((self.x + 31,self.y + 77))
         
     def dosleep(self, event):
