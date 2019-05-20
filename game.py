@@ -358,11 +358,12 @@ class Game(App):
         
         if self.f==True and self.f>=1000:
             self.fi=False
-        #if self.f==True and self.f<750:
-            #make like sleep
+        if self.f==True and self.f<750:
+            self.f+=10
         if self.p==True and self.p>=1000:
             self.pi=False
-            
+        if self.p==True and self.f<750:
+            self.p+=10   
         if self.n==True and self.s<1000:
             self.s+=.25
         if self.s>=1000:
