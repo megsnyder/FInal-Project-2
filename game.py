@@ -114,6 +114,11 @@ class Food(Sprite):
     asset=ImageAsset("images/Screenshot 2019-05-03 at 10.png")
     def __init__(self, position):
         super().__init__(Food.asset, position)
+        
+class BFood(Sprite):
+    asset=ImageAsset("images/Screenshot 2019-05-03 at 10.png")
+    def __init__(self, position):
+        super().__init__(BFood.asset, position)
 
 class Food2(Sprite):
     asset=ImageAsset("images/Screenshot 2019-05-20 at 10.png")
@@ -224,7 +229,12 @@ class Game(App):
         self.food3=Food3((self.x + 31,self.y + 77))
         self.food2=Food2((self.x + 29,self.y + 69))
         self.food=Food((self.x + 30,self.y + 50))
+        if self.fi==True and self.fo==100:
+            
+        if self.fi==True and self.fo==200:
         
+        if self.fi==True and self.fo==250:
+            
     def dosleep(self, event):
         self.night.visible=True
         self.bed.visible=True
@@ -371,10 +381,8 @@ class Game(App):
         if self.fi==True and self.f>=1000:
             self.fi=False
         if self.fi==True and self.f<750:
-            self.f+=5
-            
-        if self.fi==True and <self.f<:
-        if self.fi==True and self.f<750:
+            self.f+=10
+            self.fo+=10
         if self.pi==True and self.p>=1000:
             self.pi=False
         if self.pi==True and self.f<750:
