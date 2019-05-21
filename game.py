@@ -274,7 +274,7 @@ class Game(App):
         self.trampoline=Trampoline((self.x ,self.y + 100))
                     
     def step(self):
-        if self.n==False:
+        if self.n==False and self.fi==False and self.pi==False:
             self.f-=.25
             self.s-=.25
             self.p-=.25
@@ -384,12 +384,12 @@ class Game(App):
             if self.f<950:
                 self.f+=50
                 self.fo+=50
-                if self.fo==100:
-                    self.food.visible=False
-                if self.fo==200:
-                    self.food2.visible=False
-                if self.fo==250:
-                    self.food3.visible=False
+            if self.fo==100:
+                self.food.visible=False
+            if self.fo==200:
+                self.food2.visible=False
+            if self.fo==250:
+                self.food3.visible=False
 
         if self.pi==True and self.p>=1000:
             self.pi=False
