@@ -187,8 +187,6 @@ class Game(App):
         self.f=1000
         self.s=1000
         self.p=1000
-        self.fp=((1000-self.f)/6)
-        self.pp=((1000-self.p)/6)
         self.day=Day((0,0))
         self.night=Night((0,0))
         ground_asset = RectangleAsset(self.width, 400, noline, green)
@@ -227,13 +225,14 @@ class Game(App):
         Game.listenKeyEvent("keydown", "p", self.doplay)
 
     def dofeed(self, event):
-        self.fi=True
-        self.food3=Food3((self.x + 37,self.y + 70))
-        self.food2=Food2((self.x + 35,self.y + 60))
-        self.food=Food((self.x + 36,self.y + 43))
-        self.food3.visible=True
-        self.food2.visible=True
-        self.food.visible=True
+        if self.f<950:
+            self.fi=True
+            self.food3=Food3((self.x + 37,self.y + 70))
+            self.food2=Food2((self.x + 35,self.y + 60))
+            self.food=Food((self.x + 36,self.y + 43))
+            self.food3.visible=True
+            self.food2.visible=True
+            self.food.visible=True
 
     def dosleep(self, event):
         self.night.visible=True
@@ -275,7 +274,7 @@ class Game(App):
         self.trampoline=Trampoline((self.x ,self.y + 100))
                     
     def step(self):
-        if self.n==False and self.fi==False and self.pi==False:
+        if self.n==False:
             self.f-=.25
             self.s-=.25
             self.p-=.25
@@ -382,14 +381,14 @@ class Game(App):
         if self.fi==True:
             if self.f>=1000:
                 self.fi=False
-            if self.f<1000:
-                self.f+=self.fp
-                self.fo+=self.fp
-                if self.fo==2*self.fp:
+            if self.f<950:
+                self.f+=50
+                self.fo+=50
+                if self.fo==100:
                     self.food.visible=False
-                if self.fo==4*self.fp:
+                if self.fo==200:
                     self.food2.visible=False
-                if self.fo==6*self.fp:
+                if self.fo==250:
                     self.food3.visible=False
 
         if self.pi==True and self.p>=1000:
