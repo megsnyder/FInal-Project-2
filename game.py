@@ -203,6 +203,9 @@ class Game(App):
         self.bfood=BFood((20,220))
         self.bfood=BFood((950,300))
         self.bfood=BFood((920,350))
+        self.food3=Food3((self.x + 37,self.y + 67))
+        self.food2=Food2((self.x + 35,self.y + 60))
+        self.food=Food((self.x + 36,self.y + 43))
         self.creature1=Creature1((self.x,self.y))
         self.creature3=Creature3((self.x - 10,self.y - 75))
         self.creature3sad=Creature3sad((self.x - 3,self.y - 5))
@@ -277,9 +280,9 @@ class Game(App):
                     
     def step(self):
         if self.n==False and self.fi==False and self.pi==False:
-            self.f-=.5
-            self.s-=.5
-            self.p-=.5
+            self.f-=1
+            self.s-=1
+            self.p-=1
         
         self.m+=1
         if self.m==80:
@@ -379,13 +382,15 @@ class Game(App):
         elif self.e==True and self.n==False and self.f>750 and self.s>750 and self.p>750:
             self.creature3.visible=True
         
-        if self.f<750:
-            self.f+=50
-            self.fo+=50
+        if self.fi==True:        
+            if self.f<750:
+                self.f+=50
+                self.fo+=50
         if self.f>=1000:
             self.fi=False
         if self.fo==100:
             self.food.visible=False
+            print(self.fo)
         if self.fo==200:
             self.food2.visible=False
         if self.fo==250:
