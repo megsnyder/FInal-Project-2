@@ -198,11 +198,11 @@ class Game(App):
         Sprite(bushes, (925,280))
         Sprite(bushes, (900,300))
         Sprite(bushes, (950,320))
-        self.food=Food((100,200))
-        self.food=Food((60,250))
-        self.food=Food((20,220))
-        self.food=Food((950,300))
-        self.food=Food((920,350))
+        self.bfood=BFood((100,200))
+        self.bfood=BFood((60,250))
+        self.bfood=BFood((20,220))
+        self.bfood=BFood((950,300))
+        self.bfood=BFood((920,350))
         self.creature1=Creature1((self.x,self.y))
         self.creature3=Creature3((self.x - 10,self.y - 75))
         self.creature3sad=Creature3sad((self.x - 3,self.y - 5))
@@ -230,11 +230,11 @@ class Game(App):
         self.food2=Food2((self.x + 29,self.y + 69))
         self.food=Food((self.x + 30,self.y + 50))
         if self.fi==True and self.fo==100:
-            
+            self.food.visible=False
         if self.fi==True and self.fo==200:
-        
+            self.food2.visible=False
         if self.fi==True and self.fo==250:
-            
+            self.food3.visible=False
     def dosleep(self, event):
         self.night.visible=True
         self.bed.visible=True
@@ -272,7 +272,7 @@ class Game(App):
                         
     def doplay(self, event):
         self.pi=True
-        self.trampoline=Trampoline((self.x + 10,self.y + 50))
+        self.trampoline=Trampoline((self.x ,self.y + 100))
                     
     def step(self):
         if self.n==False:
