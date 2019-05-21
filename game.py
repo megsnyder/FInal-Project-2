@@ -114,7 +114,7 @@ class Food(Sprite):
     asset=ImageAsset("images/Screenshot 2019-05-03 at 10.png")
     def __init__(self, position):
         super().__init__(Food.asset, position)
-        
+        self.visible=False
 class BFood(Sprite):
     asset=ImageAsset("images/Screenshot 2019-05-03 at 10.png")
     def __init__(self, position):
@@ -124,12 +124,12 @@ class Food2(Sprite):
     asset=ImageAsset("images/Screenshot 2019-05-20 at 10.png")
     def __init__(self, position):
         super().__init__(Food2.asset, position)
-        
+        self.visible=False
 class Food3(Sprite):
     asset=ImageAsset("images/Screenshot 2019-05-20 at 10 (1).png")
     def __init__(self, position):
         super().__init__(Food3.asset, position)
-
+        self.visible=False
 class Trampoline(Sprite):
     asset=ImageAsset("images/Screenshot 2019-05-06 at 9.png")
     def __init__(self, position):
@@ -226,15 +226,13 @@ class Game(App):
 
     def dofeed(self, event):
         self.fi=True
-        self.food3=Food3((self.x + 31,self.y + 77))
-        self.food2=Food2((self.x + 29,self.y + 69))
-        self.food=Food((self.x + 30,self.y + 50))
-        if self.fi==True and self.fo==100:
-            self.food.visible=False
-        if self.fi==True and self.fo==200:
-            self.food2.visible=False
-        if self.fi==True and self.fo==250:
-            self.food3.visible=False
+        self.food3=Food3((self.x + 37,self.y + 70))
+        self.food2=Food2((self.x + 35,self.y + 60))
+        self.food=Food((self.x + 36,self.y + 43))
+        self.food3.visible=True
+        self.food2.visible=True
+        self.food.visible=True
+
     def dosleep(self, event):
         self.night.visible=True
         self.bed.visible=True
@@ -275,7 +273,7 @@ class Game(App):
         self.trampoline=Trampoline((self.x ,self.y + 100))
                     
     def step(self):
-        if self.n==False:
+        if self.n==False and self.fi==False and self.pi==False:
             self.f-=.25
             self.s-=.25
             self.p-=.25
@@ -380,19 +378,28 @@ class Game(App):
         
         if self.fi==True and self.f>=1000:
             self.fi=False
-        if self.fi==True and self.f<750:
-            self.f+=10
-            self.fo+=10
+        if self.fi==True and self.f<1000:
+            self.f+=50
+            self.fo+=50
+        if self.fi==True and self.fo==100:
+            self.food.visible=False
+        if self.fi==True and self.fo==200:
+            self.food2.visible=False
+        if self.fi==True and self.fo==250:
+            self.food3.visible=False
+
         if self.pi==True and self.p>=1000:
             self.pi=False
         if self.pi==True and self.f<750:
             self.p+=10   
+            
         if self.n==True and self.s<1000:
             self.s+=.25
         if self.s>=1000:
             self.night.visible=False
             self.bed.visible=False
             self.n=False
+    
         if self.f==0 or self.s==0 or self.p==0:
             print("game over")
             self.screen.visible=True
