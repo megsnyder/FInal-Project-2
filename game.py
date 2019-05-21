@@ -227,7 +227,7 @@ class Game(App):
     def dofeed(self, event):
         if self.f<950:
             self.fi=True
-            self.food3=Food3((self.x + 37,self.y + 70))
+            self.food3=Food3((self.x + 37,self.y + 67))
             self.food2=Food2((self.x + 35,self.y + 60))
             self.food=Food((self.x + 36,self.y + 43))
             self.food3.visible=True
