@@ -176,7 +176,9 @@ class Game(App):
         self.d=False
         self.e=False
         self.fi=False
+        self.fo=0
         self.pi=False
+        self.po=0
         self.f=1000
         self.s=1000
         self.p=1000
@@ -219,9 +221,9 @@ class Game(App):
 
     def dofeed(self, event):
         self.fi=True
-        self.food=Food((self.x + 30,self.y + 50))
-        self.food2=Food2((self.x + 29,self.y + 69))
         self.food3=Food3((self.x + 31,self.y + 77))
+        self.food2=Food2((self.x + 29,self.y + 69))
+        self.food=Food((self.x + 30,self.y + 50))
         
     def dosleep(self, event):
         self.night.visible=True
@@ -369,7 +371,10 @@ class Game(App):
         if self.fi==True and self.f>=1000:
             self.fi=False
         if self.fi==True and self.f<750:
-            self.f+=10
+            self.f+=5
+            
+        if self.fi==True and <self.f<:
+        if self.fi==True and self.f<750:
         if self.pi==True and self.p>=1000:
             self.pi=False
         if self.pi==True and self.f<750:
