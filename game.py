@@ -383,8 +383,8 @@ class Game(App):
             if self.f>=1000:
                 self.fi=False
             if self.f<1000:
-                self.f+=
-                self.fo+=
+                self.f+=self.fp
+                self.fo+=self.fp
                 if self.fo==100:
                     self.food.visible=False
                 if self.fo==200:
