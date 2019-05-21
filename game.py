@@ -233,6 +233,8 @@ class Game(App):
             self.food3.visible=True
             self.food2.visible=True
             self.food.visible=True
+        else:
+            print("That action is not needed.")
 
     def dosleep(self, event):
         self.night.visible=True
@@ -275,9 +277,9 @@ class Game(App):
                     
     def step(self):
         if self.n==False and self.fi==False and self.pi==False:
-            self.f-=.25
-            self.s-=.25
-            self.p-=.25
+            self.f-=.5
+            self.s-=.5
+            self.p-=.5
         
         self.m+=1
         if self.m==80:
@@ -377,14 +379,11 @@ class Game(App):
         elif self.e==True and self.n==False and self.f>750 and self.s>750 and self.p>750:
             self.creature3.visible=True
         
-
-        if self.fi==True:
-            if self.f<750:
-                self.f+=50
-                self.fo+=50
-            
-            if self.f>=1000:
-                self.fi=False
+        if self.f<750:
+            self.f+=50
+            self.fo+=50
+        if self.f>=1000:
+            self.fi=False
         if self.fo==100:
             self.food.visible=False
         if self.fo==200:
