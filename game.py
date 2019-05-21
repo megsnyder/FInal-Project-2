@@ -225,7 +225,7 @@ class Game(App):
         Game.listenKeyEvent("keydown", "p", self.doplay)
 
     def dofeed(self, event):
-        if self.f<950:
+        if self.f<750:
             self.fi=True
             self.food3=Food3((self.x + 37,self.y + 67))
             self.food2=Food2((self.x + 35,self.y + 60))
@@ -379,18 +379,20 @@ class Game(App):
         
 
         if self.fi==True:
-            if self.f>=1000:
-                self.fi=False
-            if self.f<950:
+            if self.f<750:
                 self.f+=50
                 self.fo+=50
-            if self.fo==100:
-                self.food.visible=False
-            if self.fo==200:
-                self.food2.visible=False
-            if self.fo==250:
-                self.food3.visible=False
-
+            
+            if self.f>=1000:
+                self.fi=False
+        if self.fo==100:
+            self.food.visible=False
+        if self.fo==200:
+            self.food2.visible=False
+        if self.fo==250:
+            self.food3.visible=False
+            self.fo=0
+            
         if self.pi==True and self.p>=1000:
             self.pi=False
         if self.pi==True and self.f<750:
