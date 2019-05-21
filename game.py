@@ -187,8 +187,8 @@ class Game(App):
         self.f=1000
         self.s=1000
         self.p=1000
-        self.fp=((1000-self.f)/3)
-        self.pp=((1000-self.p)/3)
+        self.fp=((1000-self.f)/6)
+        self.pp=((1000-self.p)/6)
         self.day=Day((0,0))
         self.night=Night((0,0))
         ground_asset = RectangleAsset(self.width, 400, noline, green)
@@ -385,11 +385,11 @@ class Game(App):
             if self.f<1000:
                 self.f+=self.fp
                 self.fo+=self.fp
-                if self.fo==100:
+                if self.fo==2*self.fp:
                     self.food.visible=False
-                if self.fo==200:
+                if self.fo==4*self.fp:
                     self.food2.visible=False
-                if self.fo==250:
+                if self.fo==6*self.fp:
                     self.food3.visible=False
 
         if self.pi==True and self.p>=1000:
