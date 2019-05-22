@@ -146,21 +146,6 @@ class Night(Sprite):
         super().__init__(Night.asset, position)
         self.visible=False
         
-class Feed(Sprite):
-    asset = CircleAsset(20, noline, red)
-    def __init__(self, position):
-        super().__init__(Feed.asset, position)
-        
-class Sleep(Sprite):
-    asset = CircleAsset(20, noline, yellow)
-    def __init__(self, position):
-        super().__init__(Sleep.asset, position)
-
-class Play(Sprite):
-    asset = CircleAsset(20, noline, blue)
-    def __init__(self, position):
-        super().__init__(Play.asset, position)
-
 class Bed(Sprite):
     asset = ImageAsset("images/Screenshot 2019-05-13 at 10.png")
     def __init__(self, position):
@@ -203,25 +188,22 @@ class Game(App):
         self.bfood=BFood((20,220))
         self.bfood=BFood((950,300))
         self.bfood=BFood((920,350))
-        self.food3=Food3((self.x + 37,self.y + 67))
-        self.food2=Food2((self.x + 35,self.y + 60))
-        self.food=Food((self.x + 36,self.y + 43))
+        self.food3=Food3((0,0))
+        self.food2=Food2((0,0)
+        self.food=Food((0,0))
         self.creature1=Creature1((self.x,self.y))
-        self.creature3=Creature3((self.x - 10,self.y - 75))
+        self.creature3=Creature3((0,0))
         self.creature3sad=Creature3sad((self.x - 3,self.y - 5))
         self.creature3tired=Creature3tired((self.x - 28,self.y - 3))
         self.creature3bored=Creature1bored((self.x - 9,self.y))
-        self.creature2=Creature2((self.x,self.y - 30))
+        self.creature2=Creature2((0,0))
         self.creature2sad=Creature2sad((self.x - 3,self.y - 5))
         self.creature2tired=Creature2tired((self.x - 28,self.y - 3))
         self.creature2bored=Creature2bored((self.x - 9,self.y))
-        self.creature1sad=Creature1sad((self.x - 3,self.y - 5))
-        self.creature1tired=Creature1tired((self.x - 28,self.y - 3))
-        self.creature1bored=Creature1bored((self.x - 9,self.y))
+        self.creature1sad=Creature1sad((0,0))
+        self.creature1tired=Creature1tired((0,0))
+        self.creature1bored=Creature1bored((0,0))
         self.bed=Bed((self.x + 10,self.y + 10))
-        self.feed=Feed((20,500))
-        self.sleep=Sleep((60,500))
-        self.play=Play((100,500))
         self.screen=Screen((0,0))
         Game.listenKeyEvent("keydown", "f", self.dofeed)
         Game.listenKeyEvent("keydown", "s", self.dosleep)
@@ -240,44 +222,50 @@ class Game(App):
             print("That action is not needed.")
 
     def dosleep(self, event):
-        self.night.visible=True
-        self.bed.visible=True
-        self.creature1.visible=False
-        self.creature1sad.visible=False
-        self.creature1tired.visible=False
-        self.creature1bored.visible=False
-        self.creature2.visible=False
-        self.creature2sad.visible=False
-        self.creature2tired.visible=False
-        self.creature2bored.visible=False
-        self.creature3.visible=False
-        self.creature3sad.visible=False
-        self.creature3tired.visible=False
-        self.creature3bored.visible=False
-        self.n=True
-        self.a+=1  
-        if 3<self.a<=6:
-            self.c=False
-            self.d=True
+        if self.s<750:
+            self.night.visible=True
+            self.bed.visible=True
             self.creature1.visible=False
             self.creature1sad.visible=False
             self.creature1tired.visible=False
             self.creature1bored.visible=False
-            self.creature2.visible=True
-        elif self.a>6:
-            self.c=False
-            self.d=False
-            self.e=True
             self.creature2.visible=False
             self.creature2sad.visible=False
             self.creature2tired.visible=False
             self.creature2bored.visible=False
-            self.creature3.visible=True
-                        
+            self.creature3.visible=False
+            self.creature3sad.visible=False
+            self.creature3tired.visible=False
+            self.creature3bored.visible=False
+            self.n=True
+            self.a+=1  
+            if 3<self.a<=6:
+                self.c=False
+                self.d=True
+                self.creature1.visible=False
+                self.creature1sad.visible=False
+                self.creature1tired.visible=False
+                self.creature1bored.visible=False
+                self.creature2.visible=True
+            elif self.a>6:
+                self.c=False
+                self.d=False
+                self.e=True
+                self.creature2.visible=False
+                self.creature2sad.visible=False
+                self.creature2tired.visible=False
+                self.creature2bored.visible=False
+                self.creature3.visible=True
+        else:
+            print("That action is not needed.")
+            
     def doplay(self, event):
-        self.pi=True
-        self.trampoline=Trampoline((self.x ,self.y + 100))
-                    
+        if self.s<750:
+            self.pi=True
+            self.trampoline=Trampoline((self.x ,self.y + 150))
+        else:
+            print("That action is not needed.")
+            
     def step(self):
         if self.n==False and self.fi==False and self.pi==False:
             self.f-=1
@@ -292,35 +280,45 @@ class Game(App):
         if self.m==50:
             self.vx = 0
             self.vy = 0
+
             
         if -10 < self.x <1000 and self.fi ==False and self.n==False and self.pi==False:
             self.x += self.vx
 
         if 130 < self.y < 700 and self.fi ==False and self.n==False and self.pi==False:
             self.y += self.vy
+            
+        if self.pi==True:
+            self.vy = 1*((self.vy)**2)**(1/2)
+            self.p+=2
+            if self.creature1.collidingWith(self.trampoline):
+                self.vy =-1*((self.vy)**2)**(1/2)
+            self.y += self.vy
+        if self.p>=1000:
+            self.pi=False
 
         self.creature1.x=self.x
-        self.creature1sad.x=self.x
-        self.creature1bored.x=self.x
-        self.creature1tired.x=self.x
+        self.creature1sad.x=self.x-3
+        self.creature1bored.x=self.x-9
+        self.creature1tired.x=self.x-28
         self.creature2.x=self.x
         self.creature2sad.x=self.x
         self.creature2bored.x=self.x
         self.creature2tired.x=self.x
-        self.creature3.x=self.x
+        self.creature3.x=self.x-10
         self.creature3sad.x=self.x
         self.creature3bored.x=self.x
         self.creature3tired.x=self.x
         
         self.creature1.y=self.y
-        self.creature1sad.y=self.y
+        self.creature1sad.y=self.y-5
         self.creature1bored.y=self.y
-        self.creature1tired.y=self.y
-        self.creature2.y=self.y
+        self.creature1tired.y=self.y-3
+        self.creature2.y=self.y-30
         self.creature2sad.y=self.y
         self.creature2bored.y=self.y
         self.creature2tired.y=self.y
-        self.creature3.y=self.y
+        self.creature3.y=self.y-75
         self.creature3sad.y=self.y
         self.creature3bored.y=self.y
         self.creature3tired.y=self.y
@@ -383,27 +381,21 @@ class Game(App):
             self.creature3.visible=True
         
         if self.fi==True:        
-            if self.f<750:
-                self.f+=50
-                self.fo+=50
+            self.f+=2
+            self.fo+=2
         if self.f>=1000:
             self.fi=False
         if self.fo==100:
             self.food.visible=False
-            print(self.fo)
         if self.fo==200:
             self.food2.visible=False
         if self.fo==250:
             self.food3.visible=False
             self.fo=0
-            
-        if self.pi==True and self.p>=1000:
-            self.pi=False
-        if self.pi==True and self.f<750:
-            self.p+=10   
+            self.fi=False
             
         if self.n==True and self.s<1000:
-            self.s+=.25
+            self.s+=.75
         if self.s>=1000:
             self.night.visible=False
             self.bed.visible=False
