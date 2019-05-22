@@ -160,6 +160,7 @@ class Game(App):
         self.a=0
         self.vx = 0
         self.vy = 0
+        self.g=0
         self.m = 0
         self.n=False
         self.c=True
@@ -189,7 +190,7 @@ class Game(App):
         self.bfood=BFood((950,300))
         self.bfood=BFood((920,350))
         self.food3=Food3((0,0))
-        self.food2=Food2((0,0)
+        self.food2=Food2((0,0))
         self.food=Food((0,0))
         self.creature1=Creature1((self.x,self.y))
         self.creature3=Creature3((0,0))
@@ -289,11 +290,11 @@ class Game(App):
             self.y += self.vy
             
         if self.pi==True:
-            self.vy = 1*((self.vy)**2)**(1/2)
+            self.g = 1*((self.vy)**2)**(1/2)
             self.p+=2
             if self.creature1.collidingWith(self.trampoline):
-                self.vy =-1*((self.vy)**2)**(1/2)
-            self.y += self.vy
+                self.g =-1*((self.vy)**2)**(1/2)
+            self.y += self.g
         if self.p>=1000:
             self.pi=False
 
