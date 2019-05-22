@@ -134,6 +134,12 @@ class Trampoline(Sprite):
     asset=ImageAsset("images/Screenshot 2019-05-06 at 9.png")
     def __init__(self, position):
         super().__init__(Trampoline.asset, position)
+
+class Jump(Sprite):
+    asset=EllipseAsset(40,20, noline, pink)
+    def __init__(self, position):
+        super().__init__(Jump.asset, position)
+        #self.visible=False
         
 class Day(Sprite):
     asset = RectangleAsset(1000, 800, noline, day)
@@ -160,7 +166,7 @@ class Game(App):
         self.a=0
         self.vx = 0
         self.vy = 0
-        self.g=0
+        self.g=0.5
         self.m = 0
         self.n=False
         self.c=True
@@ -261,9 +267,10 @@ class Game(App):
             print("That action is not needed.")
             
     def doplay(self, event):
-        if self.s<750:
+        if self.p<750:
             self.pi=True
             self.trampoline=Trampoline((self.x ,self.y + 150))
+            self.jump=Jump((self.x +30,self.y + 150))
         else:
             print("That action is not needed.")
             
@@ -290,10 +297,10 @@ class Game(App):
             self.y += self.vy
             
         if self.pi==True:
-            self.g = 1*((self.vy)**2)**(1/2)
-            self.p+=2
-            if self.creature1.collidingWith(self.trampoline):
-                self.g =-1*((self.vy)**2)**(1/2)
+            self.g = 1*((self.g)**2)**(1/2)
+            self.p+=1
+            if self.creature1.collidingWith(self.jump):
+                self.g =-1*((self.g)**2)**(1/2)
             self.y += self.g
         if self.p>=1000:
             self.pi=False
