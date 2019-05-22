@@ -134,6 +134,7 @@ class Trampoline(Sprite):
     asset=ImageAsset("images/Screenshot 2019-05-06 at 9.png")
     def __init__(self, position):
         super().__init__(Trampoline.asset, position)
+        self.visible=True
 
 class Jump(Sprite):
     asset=EllipseAsset(40,20, noline, pink)
@@ -304,6 +305,7 @@ class Game(App):
             self.y += self.g
         if self.p>=1000:
             self.pi=False
+            self.trampoline.visible=False
 
         self.creature1.x=self.x
         self.creature1sad.x=self.x-3
