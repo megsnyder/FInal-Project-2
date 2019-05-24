@@ -74,14 +74,14 @@ class Creature2bored(Sprite):
     
     def __init__(self, position):
         super().__init__(Creature2bored.asset, position)
-        #self.visible=False
+        self.visible=False
 
 class Creature2tired(Sprite):
     asset=ImageAsset("images/Screenshot 2019-05-01 at 10 (2).png")
     
     def __init__(self, position):
         super().__init__(Creature2tired.asset, position)
-        self.visible=False
+        #self.visible=False
         
 class Creature3(Sprite):
     asset=ImageAsset("images/Screenshot 2019-05-01 at 10 (5).png")
@@ -214,8 +214,8 @@ class Game(App):
         self.creature3bored=Creature1bored((0,0))
         self.creature2=Creature2((0,0))
         self.creature2sad=Creature2sad((0,0))
-        self.creature2tired=Creature2tired((self.x - 28,self.y - 3))
-        self.creature2bored=Creature2bored((self.x - 9,self.y))
+        self.creature2tired=Creature2tired((0,0))
+        self.creature2bored=Creature2bored((0,0))
         self.creature1sad=Creature1sad((0,0))
         self.creature1tired=Creature1tired((0,0))
         self.creature1bored=Creature1bored((0,0))
@@ -323,7 +323,7 @@ class Game(App):
         self.creature2.x=self.x
         self.creature2sad.x=self.x-20
         self.creature2bored.x=self.x-2
-        self.creature2tired.x=self.x
+        self.creature2tired.x=self.x-1
         self.creature3.x=self.x-10
         self.creature3sad.x=self.x-11
         self.creature3bored.x=self.x-10
@@ -337,7 +337,7 @@ class Game(App):
         self.creature2.y=self.y-30
         self.creature2sad.y=self.y-44
         self.creature2bored.y=self.y-35
-        self.creature2tired.y=self.y-30
+        self.creature2tired.y=self.y-43
         self.creature3.y=self.y-75
         self.creature3sad.y=self.y-77
         self.creature3bored.y=self.y-75
