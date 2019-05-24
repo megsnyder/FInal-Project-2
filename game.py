@@ -1,6 +1,7 @@
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset, ImageAsset, Frame
 import random
 
+print("Press f to feed, p to play, and s to sleep. Try and keep your creature alive!")
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 800
 day=Color(0xb9f5ff, 1.0)
@@ -137,10 +138,16 @@ class Trampoline(Sprite):
         self.visible=True
 
 class Jump(Sprite):
-    asset=EllipseAsset(40,20, noline, pink)
+    asset=EllipseAsset(40,10, noline, pink)
     def __init__(self, position):
         super().__init__(Jump.asset, position)
         #self.visible=False
+
+class CreatureFeet(Sprite):
+    asset=EllipseAsset(40,10, noline, pink)
+    def __init__(self, position):
+        super().__init__(CreatureFeet.asset, position)
+        #self.visible=False  
         
 class Day(Sprite):
     asset = RectangleAsset(1000, 800, noline, day)
@@ -167,7 +174,7 @@ class Game(App):
         self.a=0
         self.vx = 0
         self.vy = 0
-        self.g=0.5
+        self.g=10
         self.m = 0
         self.n=False
         self.c=True
@@ -200,6 +207,7 @@ class Game(App):
         self.food2=Food2((0,0))
         self.food=Food((0,0))
         self.creature1=Creature1((self.x,self.y))
+        self.creaturefeet=CreatureFeet((self.x,self.y))
         self.creature3=Creature3((0,0))
         self.creature3sad=Creature3sad((self.x - 3,self.y - 5))
         self.creature3tired=Creature3tired((self.x - 28,self.y - 3))
@@ -271,7 +279,7 @@ class Game(App):
         if self.p<750:
             self.pi=True
             self.trampoline=Trampoline((self.x ,self.y + 150))
-            self.jump=Jump((self.x +30,self.y + 150))
+            self.jump=Jump((self.x +30,self.y + 170))
         else:
             print("That action is not needed.")
             
@@ -298,10 +306,11 @@ class Game(App):
             self.y += self.vy
             
         if self.pi==True:
-            self.g = 1*((self.g)**2)**(1/2)
             self.p+=1
-            if self.creature1.collidingWith(self.jump):
+            if self.creaturefeet.collidingWith(self.jump):
                 self.g =-1*((self.g)**2)**(1/2)
+            else:
+                self.g = ((self.g)**2)**(1/2)
             self.y += self.g
         if self.p>=1000:
             self.pi=False
@@ -319,6 +328,7 @@ class Game(App):
         self.creature3sad.x=self.x
         self.creature3bored.x=self.x
         self.creature3tired.x=self.x
+        self.creaturefeet.x=self.x+15
         
         self.creature1.y=self.y
         self.creature1sad.y=self.y-5
@@ -332,6 +342,7 @@ class Game(App):
         self.creature3sad.y=self.y
         self.creature3bored.y=self.y
         self.creature3tired.y=self.y
+        self.creaturefeet.y=self.y+120
         
         #baby
         if self.c==True and self.n==False and self.f<750 and self.f<=self.s and self.f<=self.p:
