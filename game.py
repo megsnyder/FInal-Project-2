@@ -167,22 +167,22 @@ class Bed(Sprite):
         self.visible=False
         
 class FStat(Sprite):
-    asset = RectangleAsset(20, 50, noline, red)
+    asset = RectangleAsset(20, 70, noline, red)
     def __init__(self, position):
         super().__init__(FStat.asset, position)
 
 class PStat(Sprite):
-    asset = RectangleAsset(20, 50, noline, yellow)
+    asset = RectangleAsset(20, 70, noline, yellow)
     def __init__(self, position):
         super().__init__(PStat.asset, position)
 
 class SStat(Sprite):
-    asset = RectangleAsset(20, 50, noline, blue)
+    asset = RectangleAsset(20, 70, noline, blue)
     def __init__(self, position):
         super().__init__(SStat.asset, position)
   
 class NStat:
-    asset = RectangleAsset(20, 50, noline, green)
+    asset = RectangleAsset(20, 70, noline, green)
     def __init__(self, position):
         super().__init__(NStat.asset, position)
 
@@ -242,10 +242,10 @@ class Game(App):
         self.creature1tired=Creature1tired((0,0))
         self.creature1bored=Creature1bored((0,0))
         self.bed=Bed((self.x + 10,self.y + 10))
-        self.fstat=FStat((50,600))
-        self.pstat=PStat((65,600))
-        self.sstat=SStat((80,600))
-        self.nstat=NStat((95,600))
+        self.fstat=FStat((40,500))
+        self.pstat=PStat((65,500))
+        self.sstat=SStat((90,500))
+        self.nstat=NStat((105,500))
         self.screen=Screen((0,0))
         Game.listenKeyEvent("keydown", "f", self.dofeed)
         Game.listenKeyEvent("keydown", "s", self.dosleep)
