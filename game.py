@@ -60,7 +60,7 @@ class Creature2(Sprite):
     
     def __init__(self, position):
         super().__init__(Creature2.asset, position)
-        #self.visible=False
+        self.visible=False
 
 class Creature2sad(Sprite):
     asset=ImageAsset("images/Screenshot 2019-05-01 at 10 (3).png")
@@ -81,7 +81,7 @@ class Creature2tired(Sprite):
     
     def __init__(self, position):
         super().__init__(Creature2tired.asset, position)
-        #self.visible=False
+        self.visible=False
         
 class Creature3(Sprite):
     asset=ImageAsset("images/Screenshot 2019-05-01 at 10 (5).png")
@@ -166,6 +166,28 @@ class Bed(Sprite):
         super().__init__(Bed.asset, position)
         self.visible=False
         
+class FStat(Sprite):
+    asset = RectangleAsset(20, 50, noline, red)
+    def __init__(self, position):
+        super().__init__(FStat.asset, position)
+
+class PStat(Sprite):
+    asset = RectangleAsset(20, 50, noline, yellow)
+    def __init__(self, position):
+        super().__init__(PStat.asset, position)
+
+class SStat(Sprite):
+    asset = RectangleAsset(20, 50, noline, blue)
+    def __init__(self, position):
+        super().__init__(SStat.asset, position)
+  
+class NStat:
+    asset = RectangleAsset(20, 50, noline, green)
+    def __init__(self, position):
+        super().__init__(NStat.asset, position)
+
+
+        
 class Game(App):
     def __init__(self,width,height):
         super().__init__(width,height)
@@ -220,6 +242,10 @@ class Game(App):
         self.creature1tired=Creature1tired((0,0))
         self.creature1bored=Creature1bored((0,0))
         self.bed=Bed((self.x + 10,self.y + 10))
+        self.fstat=FStat((50,600))
+        self.pstat=PStat((65,600))
+        self.sstat=SStat((80,600))
+        self.nstat=NStat((95,600))
         self.screen=Screen((0,0))
         Game.listenKeyEvent("keydown", "f", self.dofeed)
         Game.listenKeyEvent("keydown", "s", self.dosleep)
