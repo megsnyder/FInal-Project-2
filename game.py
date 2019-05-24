@@ -174,7 +174,7 @@ class Game(App):
         self.a=0
         self.vx = 0
         self.vy = 0
-        self.g=10
+        self.g=5
         self.m = 0
         self.n=False
         self.c=True
@@ -308,9 +308,9 @@ class Game(App):
         if self.pi==True:
             self.p+=1
             if self.creaturefeet.collidingWith(self.jump):
-                self.g =-1*((self.g)**2)**(1/4)
+                self.g =-1*((self.g)**2)
             else:
-                self.g = ((self.g)**2)**(1/4)
+                self.g = ((self.g)**2)
             self.y += self.g
         if self.p>=1000:
             self.pi=False
