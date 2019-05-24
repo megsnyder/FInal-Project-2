@@ -278,8 +278,8 @@ class Game(App):
     def doplay(self, event):
         if self.p<750:
             self.pi=True
-            self.trampoline=Trampoline((self.x ,self.y + 150))
-            self.jump=Jump((self.x +30,self.y + 170))
+            self.trampoline=Trampoline((self.x-5,self.y + 150))
+            self.jump=Jump((self.x +25,self.y + 170))
         else:
             print("That action is not needed.")
             
