@@ -167,22 +167,22 @@ class Bed(Sprite):
         self.visible=False
         
 class FStat(Sprite):
-    asset = RectangleAsset(20, 70, noline, red)
+    asset = RectangleAsset(20, 100, noline, red)
     def __init__(self, position):
         super().__init__(FStat.asset, position)
 
 class PStat(Sprite):
-    asset = RectangleAsset(20, 70, noline, yellow)
+    asset = RectangleAsset(20, 100, noline, yellow)
     def __init__(self, position):
         super().__init__(PStat.asset, position)
 
 class SStat(Sprite):
-    asset = RectangleAsset(20, 70, noline, blue)
+    asset = RectangleAsset(20, 100, noline, blue)
     def __init__(self, position):
         super().__init__(SStat.asset, position)
   
-class NStat:
-    asset = RectangleAsset(20, 70, noline, green)
+class NStat(Sprite):
+    asset = RectangleAsset(20, 100, noline, green)
     def __init__(self, position):
         super().__init__(NStat.asset, position)
 
@@ -242,10 +242,12 @@ class Game(App):
         self.creature1tired=Creature1tired((0,0))
         self.creature1bored=Creature1bored((0,0))
         self.bed=Bed((self.x + 10,self.y + 10))
-        self.fstat=FStat((40,500))
-        self.pstat=PStat((65,500))
-        self.sstat=SStat((90,500))
-        self.nstat=NStat((105,500))
+        self.fstat=FStat((40,450))
+        self.pstat=PStat((65,450))
+        self.sstat=SStat((90,450))
+        self.nstatf=NStat((40,350))
+        self.nstatp=NStat((65,350))
+        self.nstats=NStat((90,350))
         self.screen=Screen((0,0))
         Game.listenKeyEvent("keydown", "f", self.dofeed)
         Game.listenKeyEvent("keydown", "s", self.dosleep)
@@ -312,8 +314,8 @@ class Game(App):
     def step(self):
         if self.n==False and self.fi==False and self.pi==False:
             self.f-=1
-            self.s-=1
-            self.p-=1
+            self.s-=.5
+            self.p-=.75
         
         self.m+=1
         if self.m==80:
@@ -325,7 +327,7 @@ class Game(App):
             self.vy = 0
 
             
-        if -10 < self.x <1000 and self.fi ==False and self.n==False and self.pi==False:
+        if 110< self.x <1000 and self.fi ==False and self.n==False and self.pi==False:
             self.x += self.vx
 
         if 130 < self.y < 700 and self.fi ==False and self.n==False and self.pi==False:
@@ -369,6 +371,10 @@ class Game(App):
         self.creature3bored.y=self.y-75
         self.creature3tired.y=self.y-74
         self.creaturefeet.y=self.y+120
+    
+        self.nstatf.y=350+((1000-self.f)/10)
+        self.nstatp.y=350+((1000-self.p)/10)
+        self.nstats.y=350+((1000-self.s)/10)
         
         #baby
         if self.c==True and self.n==False and self.f<750 and self.f<=self.s and self.f<=self.p:
